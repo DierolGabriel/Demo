@@ -6,8 +6,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
-
-import javax.swing.*;
+import javafx.stage.Stage;
 
 public class MenuController {
 
@@ -19,6 +18,9 @@ public class MenuController {
 
     @FXML
     private Pane MainMenu;
+
+    @FXML
+    private MenuItem ManEntrenador;
 
     @FXML
     private MenuItem ManUsuarios;
@@ -37,7 +39,12 @@ public class MenuController {
 
     }
 
-    void Admin()
+    @FXML
+    void ManEntrenador(ActionEvent event)
     {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Entrenador(new Stage());
+
     }
+
 }

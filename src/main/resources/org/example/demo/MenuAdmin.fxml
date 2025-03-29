@@ -13,7 +13,7 @@
     <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="800.0">
         <Menu fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
             <MenuItem fx:id="ManUsuarios" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
-            <MenuItem mnemonicParsing="false" text="Entrenador" />
+            <MenuItem fx:id="ManEntrenador" mnemonicParsing="false" onAction="#ManEntrenador" text="Entrenador" />
             <MenuItem mnemonicParsing="false" text="Localización" />
             <MenuItem mnemonicParsing="false" text="Salas" />
             <MenuItem mnemonicParsing="false" text="Actividades" />

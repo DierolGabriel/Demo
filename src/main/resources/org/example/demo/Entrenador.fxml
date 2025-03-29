@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="571.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.EntrenadorController">
+   <children>
+      <TextField fx:id="notificador" disable="true" editable="false" layoutX="232.0" layoutY="111.0" prefHeight="25.0" prefWidth="217.0" />
+   </children>
+</AnchorPane>

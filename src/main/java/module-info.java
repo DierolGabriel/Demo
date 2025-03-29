@@ -8,6 +8,7 @@ module org.example.demo {
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
     requires java.desktop;
+    requires annotations;
 
     opens org.example.demo to javafx.fxml;
     exports org.example.demo;
