@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="MainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MenuController">
+    <Label layoutX="339.0" layoutY="264.0" prefHeight="72.0" prefWidth="123.0" text="Bienvenido" textOverrun="CENTER_ELLIPSIS">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Label>
+    <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="800.0">
+        <Menu fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
+            <MenuItem fx:id="ManUsuarios" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
+            <MenuItem mnemonicParsing="false" text="Entrenador" />
+            <MenuItem mnemonicParsing="false" text="Localización" />
+            <MenuItem mnemonicParsing="false" text="Salas" />
+            <MenuItem mnemonicParsing="false" text="Actividades" />
+            <MenuItem mnemonicParsing="false" text="Horarios Actividades" />
+            <MenuItem mnemonicParsing="false" text="Clientes" />
+            <MenuItem mnemonicParsing="false" text="Estados Reservas" />
+            <MenuItem mnemonicParsing="false" text="Reservas" />
+            <MenuItem mnemonicParsing="false" text="Reserva Actividades" />
+        </Menu>
+        <Menu fx:id="Movimientos" mnemonicParsing="false" text="Movimientos">
+            <MenuItem mnemonicParsing="false" text="Delete" />
+        </Menu>
+        <Menu fx:id="Procesos" mnemonicParsing="false" text="Procesos">
+            <MenuItem mnemonicParsing="false" text="About" />
+        </Menu>
+        <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+        </Menu>
+    </MenuBar>
+</Pane>
