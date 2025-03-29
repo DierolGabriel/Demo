@@ -8,6 +8,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class MenuController {
 
     @FXML
@@ -40,11 +42,10 @@ public class MenuController {
     }
 
     @FXML
-    void ManEntrenador(ActionEvent event)
+    void ManEntrenador(ActionEvent event) throws IOException
     {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.Entrenador(new Stage());
-
     }
 
 }
