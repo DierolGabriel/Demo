@@ -22,7 +22,7 @@ public class MenuAdmin extends Application {
     public void Entrenador(Stage stage) throws IOException
     {
     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Entrenador.fxml"));
-    Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+    Scene scene = new Scene(fxmlLoader.load(), 477, 641);
         stage.setTitle("Entrenador");
         stage.setScene(scene);
         stage.show();
