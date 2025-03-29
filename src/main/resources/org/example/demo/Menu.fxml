@@ -11,7 +11,7 @@
         </font>
     </Label>
     <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="800.0">
-        <Menu fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
+        <Menu fx:id="Mantenimiento" disable="true" mnemonicParsing="false" text="Mantenimiento">
             <MenuItem fx:id="ManUsuarios" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
             <MenuItem mnemonicParsing="false" text="Entrenador" />
             <MenuItem mnemonicParsing="false" text="Localización" />
@@ -23,10 +23,10 @@
             <MenuItem mnemonicParsing="false" text="Reservas" />
             <MenuItem mnemonicParsing="false" text="Reserva Actividades" />
         </Menu>
-        <Menu fx:id="Movimientos" mnemonicParsing="false" text="Movimientos">
+        <Menu fx:id="Movimientos" disable="true" mnemonicParsing="false" text="Movimientos">
             <MenuItem mnemonicParsing="false" text="Delete" />
         </Menu>
-        <Menu fx:id="Procesos" mnemonicParsing="false" text="Procesos">
+        <Menu fx:id="Procesos" disable="true" mnemonicParsing="false" text="Procesos">
             <MenuItem mnemonicParsing="false" text="About" />
         </Menu>
         <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">

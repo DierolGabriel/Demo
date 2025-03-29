@@ -100,10 +100,8 @@ public class LoginController
                             encontrado = true;
                             Stage stageActual = (Stage) usuario.getScene().getWindow();
                             stageActual.close();
-                            HelloApplication helloApp = new HelloApplication();
-                            helloApp.start(new Stage());
-                            MenuController menuApp = new MenuController();
-                            menuApp.Admin();
+                            MenuAdmin menuAdmin = new MenuAdmin();
+                            menuAdmin.start(new Stage());
                             break;
                         }
                     }
