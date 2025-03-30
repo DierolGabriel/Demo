@@ -10,6 +10,6 @@ module org.example.demo {
     requires java.desktop;
     requires annotations;
 
-    opens org.example.demo to javafx.fxml;
-    exports org.example.demo;
+    opens Controllers_y_Main to javafx.fxml;
+    exports Controllers_y_Main;
 }

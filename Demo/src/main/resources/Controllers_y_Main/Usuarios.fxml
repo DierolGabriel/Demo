@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="Usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.UsuarioControl">
+    <children>
+        <!-- Título -->
+        <Text layoutX="190.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mantenimiento de Usuario">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+
+        <!-- Campos de texto -->
+        <Text layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login de Usuario" />
+        <TextField fx:id="loginField" layoutX="200.0" layoutY="85.0" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+        <PasswordField fx:id="passwordField" layoutX="200.0" layoutY="155.0" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel de Acceso" />
+        <ComboBox fx:id="nivelAccesoCombo" layoutX="200.0" layoutY="225.0" prefWidth="300.0">
+            <!-- Rellenado en el controlador -->
+        </ComboBox>
+
+        <Text layoutX="50.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Usuario" />
+        <TextField fx:id="nombreField" layoutX="200.0" layoutY="295.0" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido del Usuario" />
+        <TextField fx:id="apellidoField" layoutX="200.0" layoutY="365.0" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo del Usuario" />
+        <TextField fx:id="correoField" layoutX="200.0" layoutY="435.0" prefWidth="300.0" />
+
+        <!-- Botón de registro -->
+        <Button fx:id="registerButton" layoutX="200.0" layoutY="510.0" mnemonicParsing="false" onAction="#onRegisterSubmit" prefWidth="300.0" text="Registrar Usuario" />
+      <TextField fx:id="notificador" disable="true" layoutX="672.0" layoutY="46.0" prefHeight="25.0" prefWidth="114.0" />
+    </children>
+</Pane>
