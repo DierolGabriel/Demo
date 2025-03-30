@@ -186,7 +186,8 @@ public class EntrenadorController {
                     }
                 }
             }
-            if (!encontrado) {
+            if (!encontrado )
+            {
                 limpiarCampos();
                 Notificador.setText("Creando");
             }

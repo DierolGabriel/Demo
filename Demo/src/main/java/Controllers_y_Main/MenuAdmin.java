@@ -11,7 +11,7 @@ public class MenuAdmin extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MenuAdmin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 981, 792);
         stage.setTitle("Menu");
         stage.setScene(scene);
         stage.show();
@@ -29,7 +29,7 @@ public class MenuAdmin extends Application {
     public void Usuarios(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Usuarios.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Usuarios");
         stage.setScene(scene);
         stage.show();

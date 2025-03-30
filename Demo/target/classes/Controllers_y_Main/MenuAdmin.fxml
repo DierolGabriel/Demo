@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="MainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
-    <Label layoutX="339.0" layoutY="264.0" prefHeight="72.0" prefWidth="123.0" text="Bienvenido" textOverrun="CENTER_ELLIPSIS">
+<Pane fx:id="MainMenu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="792.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
+    <Label layoutX="429.0" layoutY="360.0" prefHeight="72.0" prefWidth="123.0" text="Bienvenido" textOverrun="CENTER_ELLIPSIS">
         <font>
           <Font size="24.0" />
         </font>
     </Label>
-    <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="800.0">
+    <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="981.0">
         <Menu fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
             <MenuItem fx:id="ManUsuarios" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
             <MenuItem fx:id="ManEntrenador" mnemonicParsing="false" onAction="#ManEntrenador" text="Entrenador" />
