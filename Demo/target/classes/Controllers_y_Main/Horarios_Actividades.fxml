@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.HorariosController">
+   <children>
+      <Text layoutX="210.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horario Actividades" wrappingWidth="130.14019775390625" />
+      <Text layoutX="135.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Horario_Act" />
+      <Text layoutX="135.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dia_Act" />
+      <Text layoutX="135.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora_Act" />
+      <Text layoutX="135.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Actividad" />
+      <TextField layoutX="134.0" layoutY="100.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField layoutX="134.0" layoutY="159.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField layoutX="134.0" layoutY="207.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField layoutX="134.0" layoutY="257.0" prefHeight="26.0" prefWidth="283.0" />
+   </children>
+</AnchorPane>

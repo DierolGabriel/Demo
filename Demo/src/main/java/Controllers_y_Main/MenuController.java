@@ -75,31 +75,29 @@ public class MenuController {
     }
 
     @FXML
-    void ManActividades(ActionEvent event)
+    void ManActividades(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Actividades(new Stage());
+    }
+
+    @FXML
+    void ManClientes(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Clientes(new Stage());
+
+    }
+    @FXML
+    void ManEstados(ActionEvent event) throws IOException
     {
         MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.EstadoR(new Stage());
 
     }
 
     @FXML
-    void ManClientes(ActionEvent event)
-    {
+    void ManHorarios(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
-
-    }
-    @FXML
-    void ManEstados(ActionEvent event)
-    {
-        MenuAdmin menuAdmin = new MenuAdmin();
-
-    }
-
-    @FXML
-    void ManHorarios(ActionEvent event)
-    {
-        MenuAdmin menuAdmin = new MenuAdmin();
-
-
+        menuAdmin.Horarios(new Stage());
     }
 
     @FXML
@@ -109,8 +107,10 @@ public class MenuController {
     }
 
     @FXML
-    void ManReserva(ActionEvent event)
+    void ManReserva(ActionEvent event) throws IOException
     {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Reserva(new Stage());
     }
 
     @FXML
@@ -120,8 +120,9 @@ public class MenuController {
 
     }
     @FXML
-    void ManReservaAct(ActionEvent event) {
-
+    void ManReservaAct(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ReservaAct(new Stage());
     }
 
 }

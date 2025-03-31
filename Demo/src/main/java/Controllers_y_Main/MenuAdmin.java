@@ -45,9 +45,63 @@ public class MenuAdmin extends Application {
     public void Salas(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Salas.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 245);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 296);
         stage.setTitle("Salas");
         stage.setScene(scene);
         stage.show();
     }
+
+    public void Actividades(Stage stage) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Actividades.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 477, 641);
+        stage.setTitle("Actividades");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void EstadoR(Stage stage) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("EstadoR.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 464, 373);
+        stage.setTitle("Estado");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void Clientes(Stage stage) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Clientes.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 464, 373);
+        stage.setTitle("Estado");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ReservaAct(Stage stage) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Reserva Actividades.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 464, 373);
+        stage.setTitle("Horarios");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void Reserva(Stage stage) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Reserva.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 464, 373);
+        stage.setTitle("Reserva");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void Horarios(Stage stage) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Horarios_Actividades.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 464, 373);
+        stage.setTitle("Horarios");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 }

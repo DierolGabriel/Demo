@@ -1,2 +1,3 @@
 Dierol:123:0:Dierol:Sarante:Dierol@gmail.com
-Admin:Admin:1:Admin:Admin:Admin@gmail.com
+Admin:Admin:1:Admin:Administrado:Admin@gmail.com
+Juan:321:0:Juan:Perez:JuanPerez@gmail.com

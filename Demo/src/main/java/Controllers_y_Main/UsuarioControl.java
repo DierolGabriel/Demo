@@ -141,8 +141,10 @@ public class UsuarioControl {
     }
 
     @FXML
-    void Guardar(ActionEvent event) {
-        if (!validarCamposCompletos()) {
+    void Guardar(ActionEvent event)
+    {
+        if (!validarCamposCompletos())
+        {
             JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -191,7 +193,8 @@ public class UsuarioControl {
             statusLabel.setText(usuarioExiste ? "Modificado" : "Creado");
             desactivar();
 
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers_y_Main.ReservaActController"
+      style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;">
+    <children>
+        <!-- Título -->
+        <Text layoutX="214.0" layoutY="88.0" text="Reserva Actividades" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <!-- Campo Id_Reserva_Actividad -->
+        <Text layoutX="166.0" layoutY="169.0" text="Id_Reserva_Actividad" />
+        <TextField fx:id="txtIdReservaActividad" layoutX="320.0" layoutY="150.0" prefWidth="200.0" />
+
+        <!-- Campo Fecha_Reserva -->
+        <Text layoutX="143.0" layoutY="218.0" text="Fecha_Reserva" />
+        <DatePicker fx:id="fechaReservaPicker" layoutX="320.0" layoutY="200.0" prefWidth="200.0" />
+
+        <!-- Campo Fecha_Baja -->
+        <Text layoutX="153.0" layoutY="268.0" text="Fecha_Baja" />
+        <DatePicker fx:id="fechaBajaPicker" layoutX="320.0" layoutY="250.0" prefWidth="200.0" />
+
+        <!-- Campo Id_Est_Reserva_Act -->
+        <Text layoutX="126.0" layoutY="293.0" text="Id_Est_Reserva_Act" />
+        <TextField fx:id="txtIdEstadoReservaAct" layoutX="320.0" layoutY="275.0" prefWidth="200.0" />
+
+        <!-- Campo Id_Cliente_Res_Act -->
+        <Text layoutX="123.0" layoutY="313.0" text="Id_Cliente_Res_Act" />
+        <TextField fx:id="txtIdClienteResAct" layoutX="320.0" layoutY="295.0" prefWidth="200.0" />
+
+        <!-- Campo Id_Actividad -->
+        <Text layoutX="133.0" layoutY="323.0" text="Id_Actividad" />
+        <TextField fx:id="txtIdActividad" layoutX="320.0" layoutY="305.0" prefWidth="200.0" />
+
+        <!-- Campo Id_Res_Hor_Act -->
+        <Text layoutX="143.0" layoutY="333.0" text="Id_Res_Hor_Act" />
+        <TextField fx:id="txtIdResHorAct" layoutX="320.0" layoutY="315.0" prefWidth="200.0" />
+    </children>
+</Pane>

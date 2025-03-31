@@ -1,0 +1,2 @@
+025:piso 35:001:SalaTeatral:SalaGrande
+003:003:nombre sala:otras salas

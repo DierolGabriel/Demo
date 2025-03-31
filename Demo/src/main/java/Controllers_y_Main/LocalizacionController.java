@@ -3,6 +3,7 @@ package Controllers_y_Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -11,25 +12,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntrenadorController {
+public class LocalizacionController {
 
     @FXML
-    private TextField ApellidoEnt;
-
-    @FXML
-    private TextField CorreoEnt;
-
-    @FXML
-    private Button Guargar;
-
-    @FXML
-    private TextField IDEnt;
+    private Button Guardar;
 
     @FXML
     private Button Limpiar;
 
     @FXML
-    private TextField NombreEnt;
+    private TextField Localizacion;
 
     @FXML
     private TextField Notificador;
@@ -38,29 +30,26 @@ public class EntrenadorController {
     private Button Salir;
 
     @FXML
-    private TextField TelefonoEnt;
+    private TextField Tipo;
 
     @FXML
-    void Guardar(ActionEvent event)
-    {
-
-        if (!validarCamposCompletos())
-        {
+    void Guardar(ActionEvent event) {
+        if (!validarCamposCompletos()) {
             JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        int idEntrenador;
+        int idLocal;
         try {
-            idEntrenador = Integer.parseInt(IDEnt.getText().trim());
+            idLocal = Integer.parseInt(Localizacion.getText().trim());
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "El ID debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        File archivo = new File("Entrenadores.txt");
+        File archivo = new File("Localización.txt");
         List<String> lineas = new ArrayList<>();
-        boolean existeEntrenador = false;
+        boolean existeLocal = false;
 
         try {
             if (archivo.exists()) {
@@ -69,12 +58,13 @@ public class EntrenadorController {
                     while ((linea = br.readLine()) != null) {
                         if (!linea.trim().isEmpty()) {
                             String[] partes = linea.split(":");
-                            if (partes.length >= 1) {
+                            if (partes.length >= 2) {
                                 try {
                                     int idActual = Integer.parseInt(partes[0].trim());
-                                    if (idActual == idEntrenador) {
+
+                                    if (idActual == idLocal) {
                                         lineas.add(crearLineaEntrenador());
-                                        existeEntrenador = true;
+                                        existeLocal = true;
                                         continue;
                                     }
                                 } catch (NumberFormatException e) {
@@ -86,7 +76,7 @@ public class EntrenadorController {
                 }
             }
 
-            if (!existeEntrenador) {
+            if (!existeLocal) {
                 lineas.add(crearLineaEntrenador());
             }
 
@@ -98,64 +88,61 @@ public class EntrenadorController {
             }
 
             JOptionPane.showMessageDialog(null, "Datos guardados exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            limpiarFormulario();
+            limpiarCampos();
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+
+
+    }//fin del guardar
+
+    private boolean validarCamposCompletos()
+    {
+        return !Localizacion.getText().trim().isEmpty() &&
+                !Tipo.getText().trim().isEmpty();
     }
 
-    private boolean validarCamposCompletos() {
-        return !IDEnt.getText().trim().isEmpty() &&
-                !NombreEnt.getText().trim().isEmpty() &&
-                !ApellidoEnt.getText().trim().isEmpty() &&
-                !TelefonoEnt.getText().trim().isEmpty() &&
-                !CorreoEnt.getText().trim().isEmpty();
-    }
-
-    private String crearLineaEntrenador() {
+    private String crearLineaEntrenador()
+    {
         return String.join(":",
-                IDEnt.getText().trim(),
-                NombreEnt.getText().trim(),
-                ApellidoEnt.getText().trim(),
-                TelefonoEnt.getText().trim(),
-                CorreoEnt.getText().trim()
+                Localizacion.getText().trim(),
+                Tipo.getText().trim()
         );
     }
 
-    private void limpiarFormulario() {
-        IDEnt.setText("");
-        NombreEnt.setText("");
-        ApellidoEnt.setText("");
-        TelefonoEnt.setText("");
-        CorreoEnt.setText("");
-        Notificador.setText("");
-        desactivar();
-    }
     @FXML
-    void Id(ActionEvent event)
+    void Limpiar(ActionEvent event)
     {
-        Stage stageActual = (Stage) IDEnt.getScene().getWindow();
-        if (IDEnt.getText().isEmpty()) {
+        Localizacion.setText("");
+        Notificador.setText("");
+        Tipo.setText("");
+        Tipo.setDisable(true);
+    }//fin del limpiar
+
+    @FXML
+    void Localizacion(ActionEvent event)
+    {
+        if (Localizacion.getText().isEmpty())
+        {
             JOptionPane.showMessageDialog(null, "Por favor ingrese un ID");
-            stageActual.toFront();
             return;
         }
 
         int idBuscado;
         try {
-            idBuscado = Integer.parseInt(IDEnt.getText().trim());
+            idBuscado = Integer.parseInt(Localizacion.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID del entrenador debe ser un número entero");
-            stageActual.toFront();
+            JOptionPane.showMessageDialog(null, "El ID de la localización debe ser un número entero");
             return;
         }
 
-        File arq = new File("Entrenadores.txt");
+        File arq = new File("Localización.txt");
         boolean encontrado = false;
 
         try {
-            if (!arq.exists()) {
+            if (!arq.exists())
+            {
                 arq.createNewFile();
                 activar();
                 return;
@@ -166,15 +153,14 @@ public class EntrenadorController {
                 while ((linea = br.readLine()) != null && !linea.isEmpty()) {
                     String[] partes = linea.split(":");
 
-                    if (partes.length >= 5) {
+                    if (partes.length >= 2) {
                         try {
                             int idActual = Integer.parseInt(partes[0].trim());
+                            String Tipoarc = partes[1].trim();
 
-                            if (idActual == idBuscado) {
-                                NombreEnt.setText(partes[1].trim());
-                                ApellidoEnt.setText(partes[2].trim());
-                                TelefonoEnt.setText(partes[3].trim());
-                                CorreoEnt.setText(partes[4].trim());
+                            if (idActual == idBuscado)
+                            {
+                               Tipo.setText(Tipoarc);
                                 Notificador.setText("Modificando");
                                 encontrado = true;
                                 break;
@@ -188,78 +174,38 @@ public class EntrenadorController {
             }
             if (!encontrado )
             {
-                limpiarCampos();
                 Notificador.setText("Creando");
+                Tipo.setText("");
+
             }
 
             activar();
 
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             JOptionPane.showMessageDialog(null, "Error al acceder al archivo: " + e.getMessage());
-            stageActual.toFront();
         }
-    }
+    }// Localización
 
-    private void limpiarCampos() {
-        NombreEnt.setText("");
-        ApellidoEnt.setText("");
-        TelefonoEnt.setText("");
-        CorreoEnt.setText("");
-        Notificador.setText("");
-    }
-
-    @FXML
-    void Limpiar(ActionEvent event)
+    private void limpiarCampos()
     {
-        IDEnt.setText("");
-        ApellidoEnt.setText("");
-        CorreoEnt.setText("");
-        NombreEnt.setText("");
-        TelefonoEnt.setText("");
+        Tipo.setText("");
         Notificador.setText("");
-
-        ApellidoEnt.setEditable(false);
-        CorreoEnt.setEditable(false);
-        NombreEnt.setEditable(false);
-        TelefonoEnt.setEditable(false);
-
-        ApellidoEnt.setDisable(true);
-        CorreoEnt.setDisable(true);
-        NombreEnt.setDisable(true);
-        TelefonoEnt.setDisable(true);
+        Tipo.setDisable(true);
+        Localizacion.setText("");
     }
+
 
     @FXML
     void Salir(ActionEvent event)
     {
-        Stage stageActual = (Stage) IDEnt.getScene().getWindow();
+        Stage stageActual = (Stage) Localizacion.getScene().getWindow();
         stageActual.close();
     }
 
     public void activar()
     {
-        ApellidoEnt.setEditable(true);
-        CorreoEnt.setEditable(true);
-        NombreEnt.setEditable(true);
-        TelefonoEnt.setEditable(true);
-
-        ApellidoEnt.setDisable(false);
-        CorreoEnt.setDisable(false);
-        NombreEnt.setDisable(false);
-        TelefonoEnt.setDisable(false);
-    }
-
-    public void desactivar()
-    {
-        ApellidoEnt.setEditable(false);
-        CorreoEnt.setEditable(false);
-        NombreEnt.setEditable(false);
-        TelefonoEnt.setEditable(false);
-
-        ApellidoEnt.setDisable(true);
-        CorreoEnt.setDisable(true);
-        NombreEnt.setDisable(true);
-        TelefonoEnt.setDisable(true);
+        Tipo.setDisable(false);
     }
 
 }
