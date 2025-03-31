@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.HorariosController">
    <children>
@@ -11,9 +11,13 @@
       <Text layoutX="135.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dia_Act" />
       <Text layoutX="135.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora_Act" />
       <Text layoutX="135.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Actividad" />
-      <TextField layoutX="134.0" layoutY="100.0" prefHeight="26.0" prefWidth="283.0" />
-      <TextField layoutX="134.0" layoutY="159.0" prefHeight="26.0" prefWidth="283.0" />
-      <TextField layoutX="134.0" layoutY="207.0" prefHeight="26.0" prefWidth="283.0" />
-      <TextField layoutX="134.0" layoutY="257.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField fx:id="IdHorarioActividad" layoutX="134.0" layoutY="100.0" onAction="#initialize" prefHeight="26.0" prefWidth="283.0" />
+      <TextField fx:id="DiaAct" disable="true" layoutX="134.0" layoutY="159.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField fx:id="HoraAct" disable="true" layoutX="134.0" layoutY="207.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField fx:id="IdActividad" disable="true" layoutX="134.0" layoutY="257.0" prefHeight="26.0" prefWidth="283.0" />
+      <TextField fx:id="Notificador" layoutX="453.0" layoutY="46.0" prefHeight="26.0" prefWidth="130.0" />
+      <Button fx:id="Guardar" layoutX="274.0" layoutY="283.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="417.0" layoutY="283.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="133.0" layoutY="283.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
    </children>
 </AnchorPane>
