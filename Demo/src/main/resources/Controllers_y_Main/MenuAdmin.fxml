@@ -5,7 +5,7 @@
 <?import javafx.scene.text.*?>
 
 <Pane fx:id="MainMenu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="792.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
-    <Label layoutX="429.0" layoutY="360.0" prefHeight="72.0" prefWidth="123.0" text="Bienvenido" textOverrun="CENTER_ELLIPSIS">
+    <Label layoutX="350.0" layoutY="360.0" prefHeight="72.0" prefWidth="281.0" text="Bienvenido Administrador" textOverrun="CENTER_ELLIPSIS">
         <font>
           <Font size="24.0" />
         </font>
@@ -30,7 +30,25 @@
             <MenuItem mnemonicParsing="false" text="About" />
         </Menu>
         <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">
-            <MenuItem mnemonicParsing="false" text="Action 1" />
+         <items>
+            <MenuItem fx:id="ManUsuarios1" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
+            <MenuItem mnemonicParsing="false" text="Entrenador" />
+            <MenuItem mnemonicParsing="false" text="Localización" />
+            <MenuItem mnemonicParsing="false" text="Salas" />
+            <MenuItem mnemonicParsing="false" text="Actividades" />
+            <MenuItem mnemonicParsing="false" text="Horarios Actividades" />
+            <MenuItem mnemonicParsing="false" text="Cobro por rango de fecha" />
+            <MenuItem mnemonicParsing="false" text="Cuota por fecha" />
+            <MenuItem mnemonicParsing="false" text="Cuota por Clientes" />
+            <MenuItem mnemonicParsing="false" text="Clientes" />
+            <MenuItem mnemonicParsing="false" text="Clientes con balance pendiente" />
+            <MenuItem mnemonicParsing="false" text="Cobro por cliente" />
+         </items>
         </Menu>
     </MenuBar>
+   <Label layoutX="560.0" layoutY="360.0" prefHeight="72.0" prefWidth="195.0" textOverrun="CENTER_ELLIPSIS">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
 </Pane>

@@ -91,11 +91,11 @@ public class LoginController
                             encontrado = true;
                             Stage stageActual = (Stage) usuario.getScene().getWindow();
                             stageActual.close();
-                            HelloApplication helloApp = new HelloApplication();
-                            helloApp.start(new Stage());
+                            MenuAdmin menu = new MenuAdmin();
+                            menu.menu(new Stage());
                             break;
                         }
-                        else
+                        else if(usuario.getText().equals(usuarioArchivo) && contra.getText().equals(contrasenaArchivo) && nivelArchivo == 1)
                         {
                             encontrado = true;
                             Stage stageActual = (Stage) usuario.getScene().getWindow();

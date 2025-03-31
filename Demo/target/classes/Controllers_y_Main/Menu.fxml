@@ -4,25 +4,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="MainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
-    <Label layoutX="339.0" layoutY="264.0" prefHeight="72.0" prefWidth="123.0" text="Bienvenido" textOverrun="CENTER_ELLIPSIS">
+<Pane fx:id="MainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuUsuarioController">
+    <Label layoutX="381.0" layoutY="360.0" prefHeight="72.0" prefWidth="219.0" text="Bienvenido Usuario" textOverrun="CENTER_ELLIPSIS">
         <font>
           <Font size="24.0" />
         </font>
     </Label>
-    <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="800.0">
-        <Menu fx:id="Mantenimiento" disable="true" mnemonicParsing="false" text="Mantenimiento">
-            <MenuItem fx:id="ManUsuarios" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
-            <MenuItem mnemonicParsing="false" text="Entrenador" />
-            <MenuItem mnemonicParsing="false" text="Localización" />
-            <MenuItem mnemonicParsing="false" text="Salas" />
-            <MenuItem mnemonicParsing="false" text="Actividades" />
-            <MenuItem mnemonicParsing="false" text="Horarios Actividades" />
-            <MenuItem mnemonicParsing="false" text="Clientes" />
-            <MenuItem mnemonicParsing="false" text="Estados Reservas" />
-            <MenuItem mnemonicParsing="false" text="Reservas" />
-            <MenuItem mnemonicParsing="false" text="Reserva Actividades" />
-        </Menu>
+    <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="981.0">
+        <Menu fx:id="Mantenimiento" disable="true" mnemonicParsing="false" text="Mantenimiento" />
         <Menu fx:id="Movimientos" disable="true" mnemonicParsing="false" text="Movimientos">
             <MenuItem mnemonicParsing="false" text="Delete" />
         </Menu>
@@ -30,7 +19,20 @@
             <MenuItem mnemonicParsing="false" text="About" />
         </Menu>
         <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">
-            <MenuItem mnemonicParsing="false" text="Action 1" />
+         <items>
+               <MenuItem fx:id="ManUsuarios" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
+               <MenuItem mnemonicParsing="false" text="Entrenador" />
+               <MenuItem mnemonicParsing="false" text="Localización" />
+               <MenuItem mnemonicParsing="false" text="Salas" />
+               <MenuItem mnemonicParsing="false" text="Actividades" />
+               <MenuItem mnemonicParsing="false" text="Horarios Actividades" />
+               <MenuItem mnemonicParsing="false" text="Cobro por rango de fecha" />
+               <MenuItem mnemonicParsing="false" text="Cuota por fecha" />
+               <MenuItem mnemonicParsing="false" text="Cuota por Clientes" />
+            <MenuItem mnemonicParsing="false" text="Clientes" />
+            <MenuItem mnemonicParsing="false" text="Clientes con balance pendiente" />
+               <MenuItem mnemonicParsing="false" text="Cobro por cliente" />
+         </items>
         </Menu>
     </MenuBar>
 </Pane>

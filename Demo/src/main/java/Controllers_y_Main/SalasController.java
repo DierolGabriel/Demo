@@ -38,7 +38,7 @@ public class SalasController {
     private TextField idSala;
 
     @FXML
-    void Guardar(ActionEvent event)
+    void Guardar(ActionEvent event) // anadir que reivise si la id de localizacion exite en el archivo localizacion
     {
         if (!validarCamposCompletos())
         {
@@ -54,7 +54,47 @@ public class SalasController {
             return;
         }
 
-        File archivo = new File("Localización.txt");
+        int idLocalizacion;
+        File archivoLocal = new File("Localización.txt");
+        List<String> lineasL = new ArrayList<>();
+        boolean existeLocalizacion = false;
+
+        try {
+            idLocalizacion = Integer.parseInt(IdLocalizacion.getText().trim());
+                try (BufferedReader br = new BufferedReader(new FileReader(archivoLocal)))
+                {
+                    String linea;
+                    while ((linea = br.readLine()) != null)
+                    {
+                        if (!linea.trim().isEmpty()) {
+                            String[] partes = linea.split(":");
+                            if (partes.length >= 1)
+                            {
+                                try {
+                                    int idActual = Integer.parseInt(partes[0].trim());
+                                    if (idActual == idLocalizacion)
+                                    {
+                                        existeLocalizacion = true;
+                                    }
+                                }catch (NumberFormatException ignored)
+                                {
+                                }
+                            }
+                        }
+                    }
+                    if (!existeLocalizacion)
+                    {
+                    JOptionPane.showMessageDialog(null, "La id de la localización no existe", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                    }
+                } catch (FileNotFoundException e)
+                {throw new RuntimeException(e);
+                }catch (IOException e)
+                {throw new RuntimeException(e);}
+        }catch (NumberFormatException e)
+        {throw new RuntimeException(e);}
+
+        File archivo = new File("Salas.txt");
         List<String> lineas = new ArrayList<>();
         boolean existeLocal = false;
 
@@ -70,12 +110,13 @@ public class SalasController {
                                 try {
                                     int idActual = Integer.parseInt(partes[0].trim());
 
-                                    if (idActual == idLocal) {
+                                    if (idActual == idLocal)
+                                    {
                                         lineas.add(crearLineaEntrenador());
                                         existeLocal = true;
                                         continue;
                                     }
-                                } catch (NumberFormatException e) {
+                                } catch (NumberFormatException ignored) {
                                 }
                             }
                             lineas.add(linea);
@@ -84,7 +125,8 @@ public class SalasController {
                 }
             }
 
-            if (!existeLocal) {
+            if (!existeLocal)
+            {
                 lineas.add(crearLineaEntrenador());
             }
 
@@ -153,7 +195,7 @@ public class SalasController {
             return;
         }
 
-        File arq = new File("Localización.txt");
+        File arq = new File("Salas.txt");
         boolean encontrado = false;
 
         try {
@@ -169,12 +211,12 @@ public class SalasController {
                 while ((linea = br.readLine()) != null && !linea.isEmpty()) {
                     String[] partes = linea.split(":");
 
-                    if (partes.length >= 5)
+                    if (partes.length >= 4)
                     {
                         try {
-                            int idSalaActual = Integer.parseInt(partes[2]);
-                            String nombreActual = partes[3];
-                            String descripcion = partes[4];
+                            int idSalaActual = Integer.parseInt(partes[1]);
+                            String nombreActual = partes[2];
+                            String descripcion = partes[3];
                             String idlocalizacionActual = partes[0];
 
                             if (idSalaActual == idBuscado)

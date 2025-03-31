@@ -1,0 +1,2 @@
+001:001:Sala nueva:Sala numero 1
+025:002:Salon:Sala Grande

@@ -1,36 +1,46 @@
 package Controllers_y_Main;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-
+import javafx.scene.control.*;
 import java.io.*;
 
 public class ActividadesController {
 
-    @FXML private TextField txtIdHorarioAct;
-    @FXML private TextField txtIdActividad;
-    @FXML private TextField txtDescripcion;
-    @FXML private TextField txtIdLocalizacion;
-    @FXML private TextField txtIdEntrenador;
+    @FXML private TextField txtIdAct;
+    @FXML private TextField txtNombreAct;
+    @FXML private TextField txtDescripcionAct;
+    @FXML private TextField txtIdLocalizacionAct;
+    @FXML private TextField txtIdEntrenadorAct;
     @FXML private Label lblEstado;
-    @FXML private Button btnGuardar;
 
-    private final String archivoHorarios = "horarios.txt";
-    private final String archivoActividades = "actividades.txt";
+    private final String archivoActividades ="Actividades.txt";
+    private final String archivoLocalizaciones ="Localización.txt";
+    private final String archivoEntrenadores = "Entrenadores.txt";
 
     @FXML
     public void initialize() {
-        txtIdHorarioAct.setOnKeyReleased(event -> verificarHorario());
+        crearArchivoSiNoExiste(archivoActividades);
+        crearArchivoSiNoExiste(archivoLocalizaciones);
+        crearArchivoSiNoExiste(archivoEntrenadores);
+        txtIdAct.setOnKeyReleased(event -> verificarActividad());
     }
 
-    private void verificarHorario() {
-        String id = txtIdHorarioAct.getText().trim();
+    private void crearArchivoSiNoExiste(String rutaArchivo) {
+        File archivo = new File(rutaArchivo);
+        if (!archivo.exists()) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
+                System.out.println("Archivo creado: " + archivo.getAbsolutePath());
+            } catch (IOException e) {
+                mostrarAlerta("Error al crear " + rutaArchivo);
+            }
+        }
+    }
+
+    private void verificarActividad() {
+        String id = txtIdAct.getText().trim();
         if (id.isEmpty()) return;
 
-        File archivo = new File(archivoHorarios);
+        File archivo = new File(archivoActividades);
         if (!archivo.exists()) return;
 
         boolean encontrado = false;
@@ -38,74 +48,92 @@ public class ActividadesController {
         try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                String[] datos = linea.split(",");
+                String[] datos = linea.split(":");
                 if (datos.length >= 5 && datos[0].equals(id)) {
-                    txtIdActividad.setText(datos[1]);
-                    txtDescripcion.setText(datos[2]);
-                    txtIdLocalizacion.setText(datos[3]);
-                    txtIdEntrenador.setText(datos[4]);
+                    txtNombreAct.setText(datos[1]);
+                    txtDescripcionAct.setText(datos[2]);
+                    txtIdLocalizacionAct.setText(datos[3]);
+                    txtIdEntrenadorAct.setText(datos[4]);
                     lblEstado.setText("Estado: Modificando");
+                    lblEstado.setStyle("-fx-text-fill: orange;");
                     encontrado = true;
                     break;
                 }
             }
         } catch (IOException e) {
-            mostrarAlerta("Error al leer horarios.txt");
+            mostrarAlerta("Error al leer Actividades.txt");
         }
 
         if (!encontrado) {
             limpiarCampos(false);
             lblEstado.setText("Estado: Creando");
+            lblEstado.setStyle("-fx-text-fill: green;");
         }
     }
 
     private void limpiarCampos(boolean incluirId) {
-        if (incluirId) txtIdHorarioAct.clear();
-        txtIdActividad.clear();
-        txtDescripcion.clear();
-        txtIdLocalizacion.clear();
-        txtIdEntrenador.clear();
+        if (incluirId) txtIdAct.clear();
+        txtNombreAct.clear();
+        txtDescripcionAct.clear();
+        txtIdLocalizacionAct.clear();
+        txtIdEntrenadorAct.clear();
     }
 
-    private boolean actividadExiste(String idActividad) {
-        File archivo = new File(archivoActividades);
+    private boolean validarExistencia(String id, String archivoRuta) {
+        File archivo = new File(archivoRuta);
         if (!archivo.exists()) return false;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                String[] datos = linea.split(",");
-                if (datos[0].equals(idActividad)) {
-                    return true;
-                }
+                if (linea.split(":")[0].equals(id)) return true;
             }
         } catch (IOException e) {
-            mostrarAlerta("Error al leer actividades.txt");
+            mostrarAlerta("Error al leer archivo: " + archivoRuta);
         }
         return false;
     }
 
+    private void agregarNuevoRegistro(String archivoRuta, String id, String descripcion) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoRuta, true))) {
+            writer.write(id + ":" + descripcion + "\n");
+            System.out.println("Se agregó " + id + " en " + archivoRuta);
+        } catch (IOException e) {
+            mostrarAlerta("Error al escribir en " + archivoRuta);
+        }
+    }
+
     @FXML
-    public void guardarHorario() {
-        if (camposVacios()) {
+    private void guardarActividad()
+    {
+        if (camposVacios())
+        {
             mostrarAlerta("Todos los campos son obligatorios.");
             return;
         }
 
-        if (!actividadExiste(txtIdActividad.getText().trim())) {
-            mostrarAlerta("El Id_Actividad no existe en el archivo de Actividades.");
-            return;
+        String idLocalizacion = txtIdLocalizacionAct.getText().trim();
+        String idEntrenador = txtIdEntrenadorAct.getText().trim();
+
+
+        if (!validarExistencia(idLocalizacion, archivoLocalizaciones)) {
+            agregarNuevoRegistro(archivoLocalizaciones, idLocalizacion, "Localización generada automáticamente");
         }
 
-        String id = txtIdHorarioAct.getText().trim();
-        String lineaNueva = String.join(",",
-                id,
-                txtIdActividad.getText().trim(),
-                txtDescripcion.getText().trim(),
-                txtIdLocalizacion.getText().trim(),
-                txtIdEntrenador.getText().trim());
+        if (!validarExistencia(idEntrenador, archivoEntrenadores)) {
+            agregarNuevoRegistro(archivoEntrenadores, idEntrenador, "Entrenador sin nombre");
+        }
 
-        File archivo = new File(archivoHorarios);
+        String id = txtIdAct.getText().trim();
+        String lineaNueva = String.join(":",
+                id,
+                txtNombreAct.getText().trim(),
+                txtDescripcionAct.getText().trim(),
+                idLocalizacion,
+                idEntrenador
+        );
+
+        File archivo = new File(archivoActividades);
         boolean actualizado = false;
         StringBuilder nuevoContenido = new StringBuilder();
 
@@ -113,7 +141,7 @@ public class ActividadesController {
             try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
                 String linea;
                 while ((linea = reader.readLine()) != null) {
-                    String[] datos = linea.split(",");
+                    String[] datos = linea.split(":");
                     if (datos[0].equals(id)) {
                         nuevoContenido.append(lineaNueva).append("\n");
                         actualizado = true;
@@ -122,7 +150,7 @@ public class ActividadesController {
                     }
                 }
             } catch (IOException e) {
-                mostrarAlerta("Error al actualizar el archivo.");
+                mostrarAlerta("Error al actualizar archivo.");
                 return;
             }
         }
@@ -133,24 +161,25 @@ public class ActividadesController {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
             writer.write(nuevoContenido.toString());
-            mostrarAlerta("Horario guardado correctamente.");
+            mostrarAlerta("Actividad guardada correctamente.");
             lblEstado.setText("Estado: Guardado");
+            lblEstado.setStyle("-fx-text-fill: blue;");
         } catch (IOException e) {
-            mostrarAlerta("Error al guardar el archivo.");
+            mostrarAlerta("Error al guardar en Actividades.txt");
         }
     }
 
     private boolean camposVacios() {
-        return txtIdHorarioAct.getText().isEmpty()
-                || txtIdActividad.getText().isEmpty()
-                || txtDescripcion.getText().isEmpty()
-                || txtIdLocalizacion.getText().isEmpty()
-                || txtIdEntrenador.getText().isEmpty();
+        return txtIdAct.getText().isEmpty()
+                || txtNombreAct.getText().isEmpty()
+                || txtDescripcionAct.getText().isEmpty()
+                || txtIdLocalizacionAct.getText().isEmpty()
+                || txtIdEntrenadorAct.getText().isEmpty();
     }
 
     private void mostrarAlerta(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Información");
+        alert.setTitle("Mensaje");
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();

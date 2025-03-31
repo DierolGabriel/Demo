@@ -103,7 +103,7 @@ public class EntrenadorController {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
+    }//fin del guardar
 
     private boolean validarCamposCompletos() {
         return !IDEnt.getText().trim().isEmpty() &&
