@@ -34,6 +34,7 @@ public class MenuAdmin extends Application {
         stage.setTitle("Usuarios");
         stage.setScene(scene);
         stage.show();
+        stage.alwaysOnTopProperty();
     }
     public void Localizacion(Stage stage) throws IOException
     {

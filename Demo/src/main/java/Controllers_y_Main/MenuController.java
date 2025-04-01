@@ -91,7 +91,6 @@ public class MenuController {
     {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.EstadoR(new Stage());
-
     }
 
     @FXML

@@ -10,8 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteController {
-
+public class ClienteController { //Fecha nececita Try Cath
     @FXML private RadioButton Activo;
     @FXML private RadioButton Invitado;
     @FXML private TextField Notificado;
@@ -31,7 +30,7 @@ public class ClienteController {
     @FXML private TextField txtTelefono;
     @FXML private TextField txtValorCuota;
 
-    private static final String ARCHIVO_CLIENTES = "clientes.txt";
+    private static final String ARCHIVO_CLIENTES = "Clientes.txt";
     private boolean modificando = false;
 
     @FXML

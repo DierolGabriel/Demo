@@ -11,16 +11,28 @@
         </font>
     </Label>
     <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="981.0">
-        <Menu fx:id="Mantenimiento" disable="true" mnemonicParsing="false" text="Mantenimiento" />
-        <Menu fx:id="Movimientos" disable="true" mnemonicParsing="false" text="Movimientos">
-            <MenuItem mnemonicParsing="false" text="Delete" />
+        <Menu fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
+         <items>
+            <MenuItem fx:id="ManEntrenador" mnemonicParsing="false" onAction="#ManEntrenador" text="Entrenador" />
+            <MenuItem fx:id="ManLocalizacion" mnemonicParsing="false" onAction="#ManLocalizacion" text="Localización" />
+            <MenuItem fx:id="ManSalas" mnemonicParsing="false" onAction="#ManSalas" text="Salas" />
+            <MenuItem fx:id="ManActividades" mnemonicParsing="false" onAction="#ManActividades" text="Actividades" />
+            <MenuItem fx:id="ManHorarios" mnemonicParsing="false" onAction="#ManHorarios" text="Horarios Actividades" />
+            <MenuItem fx:id="ManClientes" mnemonicParsing="false" onAction="#ManClientes" text="Clientes" />
+            <MenuItem fx:id="ManEstados" mnemonicParsing="false" onAction="#ManEstados" text="Estados Reservas" />
+            <MenuItem fx:id="ManReserva" mnemonicParsing="false" onAction="#ManReserva" text="Reserva" />
+            <MenuItem fx:id="ManReservaAct" mnemonicParsing="false" onAction="#ManReservaAct" text="Reserva Actividades" />
+         </items></Menu>
+        <Menu fx:id="Movimientos" mnemonicParsing="false" text="Movimientos">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Cuotas" />
+         </items>
         </Menu>
-        <Menu fx:id="Procesos" disable="true" mnemonicParsing="false" text="Procesos">
-            <MenuItem mnemonicParsing="false" text="About" />
+        <Menu fx:id="Procesos" mnemonicParsing="false" text="Procesos">
+         <MenuItem mnemonicParsing="false" text="Actualiza Cuota" />
         </Menu>
         <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">
          <items>
-               <MenuItem fx:id="ManUsuarios" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
                <MenuItem mnemonicParsing="false" text="Entrenador" />
                <MenuItem mnemonicParsing="false" text="Localización" />
                <MenuItem mnemonicParsing="false" text="Salas" />

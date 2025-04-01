@@ -24,10 +24,12 @@
             <MenuItem fx:id="ManReservaAct" mnemonicParsing="false" onAction="#ManReservaAct" text="Reserva Actividades" />
         </Menu>
         <Menu fx:id="Movimientos" mnemonicParsing="false" text="Movimientos">
-            <MenuItem mnemonicParsing="false" text="Delete" />
+            <MenuItem mnemonicParsing="false" text="Cuotas" />
         </Menu>
         <Menu fx:id="Procesos" mnemonicParsing="false" text="Procesos">
-            <MenuItem mnemonicParsing="false" text="About" />
+            <MenuItem mnemonicParsing="false" text="Generar Cobro" />
+         <MenuItem mnemonicParsing="false" text="Reversar Cobro" />
+         <MenuItem mnemonicParsing="false" text="Actualiza Cuota" />
         </Menu>
         <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">
          <items>

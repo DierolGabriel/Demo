@@ -61,9 +61,10 @@ public class UsuarioControl {
         if (loginField.getText().isEmpty() || passwordField.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre y contraseña");
+            Stage stageActual = (Stage) User.getScene().getWindow();
+            stageActual.toFront();
             return;
         }
-
         String loginFieldText = loginField.getText();
         String password = passwordField.getText();
 
@@ -111,7 +112,6 @@ public class UsuarioControl {
                                 loginField.setDisable(true);
                                 break;
                             }
-
                             if(passwordusuario != passwordField.getText() && Login.equals(loginFieldText))
                             {
                                 JOptionPane.showMessageDialog(null, "Este usuario ya existe ingrese la contraseña correcta");
@@ -123,8 +123,6 @@ public class UsuarioControl {
                     }
                 }
             }
-
-
             if (!encontrado)
             {
                 activar();
@@ -146,6 +144,8 @@ public class UsuarioControl {
         if (!validarCamposCompletos())
         {
             JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
+            Stage stageActual = (Stage) User.getScene().getWindow();
+            stageActual.toFront();
             return;
         }
 
@@ -192,7 +192,6 @@ public class UsuarioControl {
             JOptionPane.showMessageDialog(null, "Datos guardados exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             statusLabel.setText(usuarioExiste ? "Modificado" : "Creado");
             desactivar();
-
         } catch (IOException e)
         {
             JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

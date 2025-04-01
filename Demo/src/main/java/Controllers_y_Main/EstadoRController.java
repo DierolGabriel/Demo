@@ -49,7 +49,7 @@ public class EstadoRController {
             return;
         }
 
-        File archivo = new File("Reservas.txt");
+        File archivo = new File("ReservasEstado.txt");
         List<String> lineas = new ArrayList<>();
         boolean existeLocal = false;
 
@@ -152,7 +152,7 @@ public class EstadoRController {
             return;
         }
 
-        File arq = new File("Reservas.txt");
+        File arq = new File("ReservasEstado.txt");
         boolean encontrado = false;
 
         try {

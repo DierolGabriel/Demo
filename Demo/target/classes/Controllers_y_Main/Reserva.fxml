@@ -11,7 +11,7 @@
 
         <!-- Campo Id_Reserva -->
         <Text layoutX="50.0" layoutY="100.0" text="Id_Reserva" />
-        <TextField fx:id="idReserva" layoutX="200.0" layoutY="85.0" onAction="#Reserva" prefWidth="300.0" />
+        <TextField fx:id="idReserva" layoutX="200.0" layoutY="85.0" onAction="#initialize" prefWidth="300.0" />
 
         <!-- Campo Id_Sala_Reserva -->
         <Text layoutX="50.0" layoutY="130.0" text="Id_Sala_Reserva" />
