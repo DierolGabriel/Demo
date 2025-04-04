@@ -39,11 +39,11 @@
                <MenuItem mnemonicParsing="false" text="Actividades" />
                <MenuItem mnemonicParsing="false" text="Horarios Actividades" />
                <MenuItem mnemonicParsing="false" text="Cobro por rango de fecha" />
+            <MenuItem mnemonicParsing="false" text="Cobro por Cliente" />
                <MenuItem mnemonicParsing="false" text="Cuota por fecha" />
                <MenuItem mnemonicParsing="false" text="Cuota por Clientes" />
             <MenuItem mnemonicParsing="false" text="Clientes" />
             <MenuItem mnemonicParsing="false" text="Clientes con balance pendiente" />
-               <MenuItem mnemonicParsing="false" text="Cobro por cliente" />
          </items>
         </Menu>
     </MenuBar>

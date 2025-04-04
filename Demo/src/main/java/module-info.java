@@ -12,4 +12,6 @@ module org.example.demo {
 
     opens Controllers_y_Main to javafx.fxml;
     exports Controllers_y_Main;
+    exports Consultas;
+    opens Consultas to javafx.fxml;
 }

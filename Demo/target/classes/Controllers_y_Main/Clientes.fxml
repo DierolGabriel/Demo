@@ -57,10 +57,10 @@
             <ToggleGroup fx:id="GrupoStatus" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="Pasivo" disable="true" layoutX="890.0" layoutY="319.0" mnemonicParsing="false" text="Pasivo" toggleGroup="$GrupoStatus" />
-      <TextField fx:id="Notificado" disable="true" editable="false" layoutX="915.0" layoutY="40.0" prefHeight="25.0" prefWidth="128.0" />
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="915.0" layoutY="40.0" prefHeight="25.0" prefWidth="128.0" />
       <Button fx:id="btnGuardar" layoutX="584.0" layoutY="467.0" mnemonicParsing="false" onAction="#guardarCliente" style="-fx-background-color: #0056b3;" text="Guardar" textFill="#efefef" />
       <Button fx:id="btnBorrar" layoutX="698.0" layoutY="467.0" mnemonicParsing="false" onAction="#borrarCliente" style="-fx-background-color: #0056b3;" text="Borrar" textFill="#efefef" />
       <Button fx:id="btnLimpiar" layoutX="474.0" layoutY="467.0" mnemonicParsing="false" onAction="#limpiarCampos" style="-fx-background-color: #0056b3;" text="Limpiar" textFill="#efefef" />
-      <Button fx:id="btnSalir" layoutX="795.0" layoutY="467.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: #0056b3;" text="Salir" textFill="#efefef" />
+      <Button fx:id="Salir" layoutX="795.0" layoutY="467.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: #0056b3;" text="Salir" textFill="#efefef" />
    </children>
 </Pane>

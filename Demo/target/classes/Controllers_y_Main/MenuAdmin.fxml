@@ -33,18 +33,18 @@
         </Menu>
         <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">
          <items>
-            <MenuItem fx:id="ManUsuarios1" mnemonicParsing="false" onAction="#ManUsuarios" text="Usuarios" />
-            <MenuItem mnemonicParsing="false" text="Entrenador" />
-            <MenuItem mnemonicParsing="false" text="Localización" />
-            <MenuItem mnemonicParsing="false" text="Salas" />
-            <MenuItem mnemonicParsing="false" text="Actividades" />
-            <MenuItem mnemonicParsing="false" text="Horarios Actividades" />
-            <MenuItem mnemonicParsing="false" text="Cobro por rango de fecha" />
-            <MenuItem mnemonicParsing="false" text="Cuota por fecha" />
-            <MenuItem mnemonicParsing="false" text="Cuota por Clientes" />
-            <MenuItem mnemonicParsing="false" text="Clientes" />
-            <MenuItem mnemonicParsing="false" text="Clientes con balance pendiente" />
-            <MenuItem mnemonicParsing="false" text="Cobro por cliente" />
+            <MenuItem fx:id="ConUsuarios" mnemonicParsing="false" onAction="#ConUsuarios" text="Usuarios" />
+            <MenuItem fx:id="ConEntrenador" mnemonicParsing="false" onAction="#ConEntrenador" text="Entrenador" />
+            <MenuItem fx:id="ConLocalización" mnemonicParsing="false" onAction="#ConLocalización" text="Localización" />
+            <MenuItem fx:id="ConSalas" mnemonicParsing="false" onAction="#ConSalas" text="Salas" />
+            <MenuItem fx:id="ConActividades" mnemonicParsing="false" onAction="#ConActividades" text="Actividades" />
+            <MenuItem fx:id="ConHorarios" mnemonicParsing="false" onAction="#ConHorarios" text="Horarios Actividades" />
+            <MenuItem fx:id="ConCobroFecha" mnemonicParsing="false" onAction="#ConCobroFecha" text="Cobro por rango de fecha" />
+            <MenuItem fx:id="ConCobroCliente" mnemonicParsing="false" onAction="#ConCobroCliente" text="Cobro por cliente" />
+            <MenuItem fx:id="ConCuotaFecha" mnemonicParsing="false" onAction="#ConCuotaFecha" text="Cuota por fecha" />
+            <MenuItem fx:id="ConCuotaClientes" mnemonicParsing="false" onAction="#ConCuotaClientes" text="Cuota por Clientes" />
+            <MenuItem fx:id="ConClientes" mnemonicParsing="false" onAction="#ConClientes" text="Clientes" />
+            <MenuItem fx:id="ConClientesPendiente" mnemonicParsing="false" onAction="#ConClientesPendiente" text="Clientes con balance pendiente" />
          </items>
         </Menu>
     </MenuBar>

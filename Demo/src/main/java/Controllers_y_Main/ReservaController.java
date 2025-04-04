@@ -3,6 +3,7 @@ package Controllers_y_Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.io.*;
@@ -203,7 +204,8 @@ public class ReservaController {
     @FXML
     void Salir(javafx.event.ActionEvent event)
     {
-        System.exit(0);
+        Stage stageActual = (Stage) Notificador.getScene().getWindow();
+        stageActual.close();
     }
 
     private void limpiarCampos(boolean incluirId) {

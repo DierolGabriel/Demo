@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="296.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.SalasController">
+<Pane prefHeight="358.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.SalasController">
     <children>
-        <TextField fx:id="Nombre" disable="true" layoutX="241.0" layoutY="105.0" prefWidth="200.0" />
+        <TextField fx:id="Nombre" disable="true" layoutX="235.0" layoutY="105.0" prefWidth="200.0" />
         <Text layoutX="101.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id de la Sala" />
-        <TextField fx:id="idSala" layoutX="241.0" layoutY="63.0" onAction="#Sala" />
+        <TextField fx:id="idSala" layoutX="235.0" layoutY="63.0" onAction="#Sala" />
         <Text layoutX="265.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salas">
             <font>
                 <Font size="20.0" />
@@ -16,12 +16,12 @@
         </Text>
       <Text layoutX="101.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de la Sala" />
       <Text layoutX="101.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion de la Sala" />
-      <Text layoutX="101.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Localizacion de la Sala" />
-      <TextField fx:id="Descripcion" disable="true" layoutX="241.0" layoutY="144.0" prefWidth="200.0" />
-      <TextField fx:id="IdLocalizacion" disable="true" layoutX="241.0" layoutY="188.0" prefWidth="200.0" />
+      <Text layoutX="95.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Localizacion de la Sala" />
+      <TextField fx:id="IdLocalizacion" disable="true" layoutX="235.0" layoutY="258.0" prefWidth="200.0" />
       <TextField fx:id="Notificador" disable="true" editable="false" layoutX="470.0" layoutY="34.0" prefHeight="25.0" prefWidth="120.0" />
-      <Button fx:id="Guardar" layoutX="274.0" layoutY="237.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
-      <Button fx:id="Salir" layoutX="390.0" layoutY="237.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
-      <Button fx:id="Limpiar" layoutX="158.0" layoutY="237.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <Button fx:id="Guardar" layoutX="268.0" layoutY="308.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="384.0" layoutY="308.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="152.0" layoutY="308.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <TextArea fx:id="Descripcion" layoutX="235.0" layoutY="140.0" prefHeight="108.0" prefWidth="200.0" />
     </children>
 </Pane>

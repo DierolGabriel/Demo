@@ -61,6 +61,42 @@ public class MenuController {
     private Menu Procesos;
 
     @FXML
+    private MenuItem ConActividades;
+
+    @FXML
+    private MenuItem ConClientes;
+
+    @FXML
+    private MenuItem ConClientesPendiente;
+
+    @FXML
+    private MenuItem ConCobroCliente;
+
+    @FXML
+    private MenuItem ConCobroFecha;
+
+    @FXML
+    private MenuItem ConCuotaClientes;
+
+    @FXML
+    private MenuItem ConCuotaFecha;
+
+    @FXML
+    private MenuItem ConEntrenador;
+
+    @FXML
+    private MenuItem ConHorarios;
+
+    @FXML
+    private MenuItem ConLocalización;
+
+    @FXML
+    private MenuItem ConSalas;
+
+    @FXML
+    private MenuItem ConUsuarios;
+
+    @FXML
     void ManUsuarios(ActionEvent event) throws IOException
     {
         MenuAdmin menuAdmin= new MenuAdmin();
@@ -124,4 +160,63 @@ public class MenuController {
         menuAdmin.ReservaAct(new Stage());
     }
 
+    @FXML
+    void ConActividades(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConClientes(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConClientesPendiente(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConCobroCliente(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConCobroFecha(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConCuotaClientes(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConCuotaFecha(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConEntrenador(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConHorarios(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConLocalización(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConSalas(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ConUsuarios(ActionEvent event) {
+
+    }
 }

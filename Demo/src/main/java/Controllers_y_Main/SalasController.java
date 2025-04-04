@@ -3,6 +3,7 @@ package Controllers_y_Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class SalasController {
 
     @FXML
-    private TextField Descripcion;
+    private TextArea Descripcion;
 
     @FXML
     private Button Guardar;
@@ -38,7 +39,7 @@ public class SalasController {
     private TextField idSala;
 
     @FXML
-    void Guardar(ActionEvent event) // anadir que reivise si la id de localizacion exite en el archivo localizacion
+    void Guardar(ActionEvent event)
     {
         if (!validarCamposCompletos())
         {

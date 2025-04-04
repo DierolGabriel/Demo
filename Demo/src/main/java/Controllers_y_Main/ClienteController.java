@@ -3,6 +3,8 @@ package Controllers_y_Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
 import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
@@ -13,7 +15,7 @@ import java.util.List;
 public class ClienteController { //Fecha nececita Try Cath
     @FXML private RadioButton Activo;
     @FXML private RadioButton Invitado;
-    @FXML private TextField Notificado;
+    @FXML private TextField Notificador;
     @FXML private RadioButton Pasivo;
     @FXML private Button Salir;
     @FXML private RadioButton SocioActivo;
@@ -45,8 +47,8 @@ public class ClienteController { //Fecha nececita Try Cath
     private void validarIdCliente(String idCliente) {
         File archivo = new File(ARCHIVO_CLIENTES);
 
-        if (!archivo.exists()) {
-            Notificado.setText("Creando");
+        if (!archivo.exists())
+        {
             activarCampos();
             return;
         }
@@ -61,13 +63,13 @@ public class ClienteController { //Fecha nececita Try Cath
                     cargarDatosCliente(partes);
                     encontrado = true;
                     modificando = true;
-                    Notificado.setText("Modificando");
+                    Notificador.setText("Modificando");
                     break;
                 }
             }
 
             if (!encontrado) {
-                Notificado.setText("Creando");
+                Notificador.setText("Creando");
                 limpiarCampos();
                 activarCampos();
                 modificando = false;
@@ -93,7 +95,8 @@ public class ClienteController { //Fecha nececita Try Cath
             txtBalance.setText(datos[10]);
             txtValorCuota.setText(datos[11]);
 
-            if (datos[12].equals("Activo")) {
+            if (datos[12].equals("Activo"))
+            {
                 Activo.setSelected(true);
             } else {
                 Pasivo.setSelected(true);
@@ -108,7 +111,8 @@ public class ClienteController { //Fecha nececita Try Cath
     }
 
     @FXML
-    private void guardarCliente() {
+    private void guardarCliente()
+    {
         if (!validarCampos()) {
             return;
         }
@@ -173,7 +177,7 @@ public class ClienteController { //Fecha nececita Try Cath
             }
 
             JOptionPane.showMessageDialog(null, "Cliente " + (existe ? "modificado" : "creado") + " exitosamente");
-            Notificado.setText(existe ? "Modificado" : "Creado");
+            Notificador.setText(existe ? "Modificado" : "Creado");
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al guardar el cliente: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -196,12 +200,28 @@ public class ClienteController { //Fecha nececita Try Cath
         Pasivo.setSelected(false);
         SocioActivo.setSelected(false);
         Invitado.setSelected(false);
-        Notificado.setText("");
+        Notificador.setText("");
+        txtNombreCliente.setDisable(true);
+        txtApellidoPat.setDisable(true);
+        txtApellidoMat.setDisable(true);
+        txtDireccion.setDisable(true);
+        fechaNacPicker.setDisable(true);
+        txtTelefono.setDisable(true);
+        txtCelular.setDisable(true);
+        txtCorreo.setDisable(true);
+        txtBalance.setDisable(true);
+        txtValorCuota.setDisable(true);
+        Activo.setDisable(true);
+        Pasivo.setDisable(true);
+        SocioActivo.setDisable(true);
+        Invitado.setDisable(true);
     }
 
     @FXML
-    private void salir() {
-        System.exit(0);
+    private void salir()
+    {
+        Stage stageActual = (Stage) Notificador.getScene().getWindow();
+        stageActual.close();
     }
 
     private boolean validarCampos() {
