@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="615.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConActividadesController">
+   <children>
+      <Label layoutX="283.0" layoutY="14.0" text="Consulta de Actividades">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TextField" layoutX="44.0" layoutY="138.0" />
+      <Button fx:id="Limpiar" layoutX="431.0" layoutY="137.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
+      <Button fx:id="Consultar" layoutX="586.0" layoutY="138.0" mnemonicParsing="false" onAction="#Consultar" text="Consultar" />
+      <RadioButton fx:id="Filtro1" layoutX="212.0" layoutY="142.0" mnemonicParsing="false" text="ID" />
+      <RadioButton fx:id="Filtro2" layoutX="324.0" layoutY="142.0" mnemonicParsing="false" text="Nombre" />
+      <Label layoutX="198.0" layoutY="120.0" text="Filtros:" />
+      <TableView fx:id="Table" layoutX="8.0" layoutY="177.0" prefHeight="438.0" prefWidth="791.0">
+         <columns>
+            <TableColumn prefWidth="84.79998588562012" text="ID" />
+            <TableColumn prefWidth="106.40003204345703" text="ID Localización" />
+            <TableColumn prefWidth="106.40003204345703" text="ID Entrenador" />
+            <TableColumn prefWidth="194.39996337890625" text="Nombre" />
+            <TableColumn prefWidth="413.5999450683594" text="Descripción" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

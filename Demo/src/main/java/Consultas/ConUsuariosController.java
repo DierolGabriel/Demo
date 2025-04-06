@@ -77,12 +77,6 @@ public class ConUsuariosController
             throw new RuntimeException(e);
         }
 
-
-
-
-
-
-
     }
 
     @FXML

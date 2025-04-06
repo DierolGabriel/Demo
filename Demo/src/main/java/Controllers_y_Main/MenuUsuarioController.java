@@ -113,5 +113,4 @@ public class MenuUsuarioController {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.Salas(new Stage());
     }
-
 }

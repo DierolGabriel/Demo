@@ -161,8 +161,9 @@ public class MenuController {
     }
 
     @FXML
-    void ConActividades(ActionEvent event) {
-
+    void ConActividades(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConActividades(new Stage());
     }
 
     @FXML
@@ -196,27 +197,32 @@ public class MenuController {
     }
 
     @FXML
-    void ConEntrenador(ActionEvent event) {
-
+    void ConEntrenador(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConEntrenador(new Stage());
     }
 
     @FXML
-    void ConHorarios(ActionEvent event) {
-
+    void ConHorarios(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConHorarios(new Stage());
     }
 
     @FXML
-    void ConLocalización(ActionEvent event) {
-
+    void ConLocalización(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConLocalizacion(new Stage());
     }
 
     @FXML
-    void ConSalas(ActionEvent event) {
-
+    void ConSalas(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConSalas(new Stage());
     }
 
     @FXML
-    void ConUsuarios(ActionEvent event) {
-
+    void ConUsuarios(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConUsuario(new Stage());
     }
 }

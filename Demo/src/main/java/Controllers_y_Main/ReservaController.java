@@ -38,6 +38,11 @@ public class ReservaController {
             if (!newValue.isEmpty()) {
                 validarIdReserva(newValue);
             }
+            else
+            {
+                limpiarCampos(true);
+                desactivarCampos();
+            }
         });
     }
 

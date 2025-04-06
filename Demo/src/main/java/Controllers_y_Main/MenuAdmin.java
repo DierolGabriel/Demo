@@ -100,7 +100,7 @@ public class MenuAdmin extends Application {
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Horarios_Actividades.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Horarios");
+        stage.setTitle("Horarios de actividades");
         stage.setScene(scene);
         stage.show();
     }
@@ -113,6 +113,60 @@ public class MenuAdmin extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void ConUsuario(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConUsuarios.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 824, 609);
+        stage.setTitle("Consulta de Usuario");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void ConEntrenador(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConEntrenador.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 824, 609);
+        stage.setTitle("Consulta de Entrenador");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ConLocalizacion(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Con Localizacion.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 824, 609);
+        stage.setTitle("Consulta de Localizacion");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ConActividades(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConActividades.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 824, 609);
+        stage.setTitle("Consulta de Actividades");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ConHorarios(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConHorarios.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 824, 609);
+        stage.setTitle("Consulta de Horarios");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ConSalas(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConSalas.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 824, 609);
+        stage.setTitle("Consulta de Salas");
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
 
 }
