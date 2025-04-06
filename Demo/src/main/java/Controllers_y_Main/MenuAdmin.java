@@ -47,7 +47,7 @@ public class MenuAdmin extends Application {
     public void Salas(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Salas.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 296);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 358);
         stage.setTitle("Salas");
         stage.setScene(scene);
         stage.show();

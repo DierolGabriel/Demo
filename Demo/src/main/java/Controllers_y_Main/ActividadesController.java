@@ -2,6 +2,9 @@ package Controllers_y_Main;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.awt.event.ActionEvent;
 import java.io.*;
 
 public class ActividadesController {
@@ -12,6 +15,8 @@ public class ActividadesController {
     @FXML private TextField txtIdLocalizacionAct;
     @FXML private TextField txtIdEntrenadorAct;
     @FXML private Label lblEstado;
+    @FXML private Button Limpiar;
+    @FXML private Button Salir;
 
     private final String archivoActividades ="Actividades.txt";
     private final String archivoLocalizaciones ="Localización.txt";
@@ -28,8 +33,8 @@ public class ActividadesController {
     private void crearArchivoSiNoExiste(String rutaArchivo) {
         File archivo = new File(rutaArchivo);
         if (!archivo.exists()) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
-                System.out.println("Archivo creado: " + archivo.getAbsolutePath());
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo)))
+            {
             } catch (IOException e) {
                 mostrarAlerta("Error al crear " + rutaArchivo);
             }
@@ -55,6 +60,7 @@ public class ActividadesController {
                     txtIdLocalizacionAct.setText(datos[3]);
                     txtIdEntrenadorAct.setText(datos[4]);
                     lblEstado.setText("Estado: Modificando");
+                    Activar();
                     lblEstado.setStyle("-fx-text-fill: orange;");
                     encontrado = true;
                     break;
@@ -67,6 +73,7 @@ public class ActividadesController {
         if (!encontrado) {
             limpiarCampos(false);
             lblEstado.setText("Estado: Creando");
+            Activar();
             lblEstado.setStyle("-fx-text-fill: green;");
         }
     }
@@ -184,4 +191,37 @@ public class ActividadesController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+    @FXML
+    void Salir(javafx.event.ActionEvent actionEvent)
+    {
+        Stage stageActual = (Stage) txtDescripcionAct.getScene().getWindow();
+        stageActual.close();
+    }
+
+    @FXML
+    void Limpiar(javafx.event.ActionEvent actionEvent)
+    {
+    txtIdAct.setText("");
+    txtNombreAct.setText("");
+    txtDescripcionAct.setText("");
+    txtIdLocalizacionAct.setText("");
+    txtIdEntrenadorAct.setText("");
+    txtNombreAct.setDisable(true);
+    txtDescripcionAct.setDisable(true);
+    txtIdLocalizacionAct.setDisable(true);
+    txtIdEntrenadorAct.setDisable(true);
+    txtDescripcionAct.setDisable(true);
+    lblEstado.setText("Estado:");
+    }
+
+    void Activar()
+    {
+        txtNombreAct.setDisable(false);
+        txtDescripcionAct.setDisable(false);
+        txtIdLocalizacionAct.setDisable(false);
+        txtIdEntrenadorAct.setDisable(false);
+        txtDescripcionAct.setDisable(false);
+    }
+
 }

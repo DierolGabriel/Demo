@@ -15,6 +15,12 @@ import java.util.List;
 public class SalasController {
 
     @FXML
+    private Button Limpiar;
+
+    @FXML
+    private Button Salir;
+
+    @FXML
     private TextArea Descripcion;
 
     @FXML
@@ -23,17 +29,12 @@ public class SalasController {
     @FXML
     private TextField IdLocalizacion;
 
-    @FXML
-    private Button Limpiar;
 
     @FXML
     private TextField Nombre;
 
     @FXML
     private TextField Notificador;
-
-    @FXML
-    private Button Salir;
 
     @FXML
     private TextField idSala;
@@ -275,5 +276,4 @@ public class SalasController {
         Nombre.setDisable(true);
         IdLocalizacion.setDisable(true);
     }
-
 }
