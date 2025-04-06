@@ -24,7 +24,7 @@
       <TextField fx:id="txtDireccion" disable="true" layoutX="250.0" layoutY="182.0" prefWidth="300.0" />
 
       <Text layoutX="618.0" layoutY="211.0" text="Fecha_Nac_Cliente" />
-      <DatePicker fx:id="fechaNacPicker" disable="true" layoutX="740.0" layoutY="194.0" />
+      <DatePicker fx:id="fechaNacPicker" disable="true" editable="false" layoutX="740.0" layoutY="194.0" />
 
       <Text layoutX="165.0" layoutY="241.0" text="Telf_Cliente" />
       <TextField fx:id="txtTelefono" disable="true" layoutX="250.0" layoutY="224.0" prefWidth="300.0" />
@@ -33,7 +33,7 @@
       <TextField fx:id="txtCelular" disable="true" layoutX="740.0" layoutY="265.0" prefWidth="300.0" />
 
       <Text layoutX="157.0" layoutY="312.0" text="Fecha_Ingreso" />
-      <DatePicker fx:id="fechaIngresoPicker" disable="true" layoutX="250.0" layoutY="295.0" />
+      <DatePicker fx:id="fechaIngresoPicker" disable="true" editable="false" layoutX="250.0" layoutY="295.0" />
 
       <Text layoutX="614.0" layoutY="332.0" text="Status_Cliente" />
 

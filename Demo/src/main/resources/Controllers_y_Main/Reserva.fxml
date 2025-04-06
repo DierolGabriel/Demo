@@ -23,7 +23,7 @@
 
         <!-- Campo Fecha_Reserva -->
         <Text layoutX="50.0" layoutY="190.0" text="Fecha_Reserva" />
-        <DatePicker fx:id="fechaReserva" disable="true" layoutX="200.0" layoutY="175.0" prefWidth="300.0" />
+        <DatePicker fx:id="fechaReserva" disable="true" editable="false" layoutX="200.0" layoutY="175.0" prefWidth="300.0" />
 
         <!-- Campo Id_Horario_Reserva -->
         <Text layoutX="50.0" layoutY="220.0" text="Id_Horario_Reserva" />

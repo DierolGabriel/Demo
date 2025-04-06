@@ -4,10 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+
+import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.FormatFlagsConversionMismatchException;
 import java.util.List;
 
 public class ClienteController {
@@ -191,11 +195,13 @@ public class ClienteController {
 
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo)))
             {
-                for (String l : lineas) {
+                for (String l : lineas)
+                {
                     bw.write(l);
                     bw.newLine();
                 }
             }
+            JOptionPane.showMessageDialog(null, "Cliente guardado exitosamente");
 
         } catch (IOException e) {
             mostrarAlerta("Error al guardar el cliente: " + e.getMessage());
@@ -223,7 +229,9 @@ public class ClienteController {
         }
 
         File archivo = new File(ARCHIVO_CLIENTES);
+        File papelera = new File("papelera.txt");
         List<String> lineas = new ArrayList<>();
+        String clienteAEliminar = null;
         boolean encontrado = false;
 
         try {
@@ -234,6 +242,7 @@ public class ClienteController {
                         if (!linea.trim().isEmpty()) {
                             String[] partes = linea.split(":");
                             if (partes.length > 0 && partes[0].equals(idCliente)) {
+                                clienteAEliminar = linea;
                                 encontrado = true;
                             } else {
                                 lineas.add(linea);
@@ -243,6 +252,11 @@ public class ClienteController {
                 }
 
                 if (encontrado) {
+                    try (BufferedWriter bwPapelera = new BufferedWriter(new FileWriter(papelera, true))) {
+                        bwPapelera.write(clienteAEliminar);
+                        bwPapelera.newLine();
+                    }
+
                     try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
                         for (String l : lineas) {
                             bw.write(l);
@@ -250,8 +264,8 @@ public class ClienteController {
                         }
                     }
 
-                    mostrarAlerta("Cliente borrado exitosamente");
                     limpiarCampos(true);
+                    mostrarAlerta("Cliente eliminado exitosamente");
                 } else {
                     mostrarAlerta("No se encontró el cliente con ID: " + idCliente);
                 }
@@ -316,6 +330,30 @@ public class ClienteController {
             return false;
         }
 
+        try {
+        int idCliente = Integer.parseInt(txtIdCliente.getText());
+        }catch (NumberFormatException e)
+        {
+            mostrarAlerta("El  id del cliente tiene que ser un entero");
+            return false;
+        }
+
+        try {
+            int telefono = Integer.parseInt(txtTelefono.getText());
+        }catch (NumberFormatException e)
+        {
+            mostrarAlerta("El telefono tiene que ser solo numeros enteros");
+            return false;
+        }
+
+        try {
+            int Celular = Integer.parseInt(txtCelular.getText());
+        }catch (NumberFormatException e)
+        {
+            mostrarAlerta("Error el Celular tiene que ser solo numeros enteros");
+            return false;
+        }
+
         if (!txtCorreo.getText().trim().contains("@")) {
             mostrarAlerta("Ingrese un correo electrónico válido");
             return false;
@@ -344,12 +382,12 @@ public class ClienteController {
         txtApellidoMat.setDisable(false);
         txtDireccion.setDisable(false);
         fechaNacPicker.setDisable(false);
-        fechaIngresoPicker.setDisable(false);
         txtTelefono.setDisable(false);
         txtCelular.setDisable(false);
         txtCorreo.setDisable(false);
         txtBalance.setDisable(false);
         txtValorCuota.setDisable(false);
+        fechaIngresoPicker.setDisable(false);
         SocioActivo.setDisable(false);
         Invitado.setDisable(false);
         Activo.setDisable(false);
