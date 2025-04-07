@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-image: url('https://images.unsplash.com/photo-1508780709619-79562169bc64');                    -fx-background-size: cover;                    -fx-background-position: center;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-image: url('https://img.freepik.com/fotos-premium/interior-moderno-gimnasio-luces-neon-rojas-equipos-entrenamiento_461200-8910.jpg?w=1060'); -fx-background-size: cover; -fx-background-position: center;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.LoginController">
 
-   <VBox alignment="CENTER" layoutX="183.0" layoutY="72.0" prefHeight="255.0" prefWidth="203.0" spacing="15" style="-fx-background-color: rgba(255,255,255,0.1);                  -fx-background-radius: 15;                  -fx-border-radius: 15;                  -fx-border-color: rgba(255,255,255,0.3);                  -fx-border-width: 1;">
+   <VBox alignment="CENTER" layoutX="501.0" layoutY="240.0" prefHeight="320.0" prefWidth="306.0" spacing="15" style="-fx-background-color: rgba(255,255,255,0.1);                  -fx-background-radius: 15;                  -fx-border-radius: 15;                  -fx-border-color: rgba(255,255,255,0.3);                  -fx-border-width: 1;">
 
       <Text style="-fx-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="Iniciar Sesión" />
 
