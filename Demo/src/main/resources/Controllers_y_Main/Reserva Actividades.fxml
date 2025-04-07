@@ -15,19 +15,19 @@
 
         <!-- Campo Fecha_Reserva -->
         <Text layoutX="100.0" layoutY="168.0" text="Fecha_Reserva" />
-        <DatePicker fx:id="fechaReservaPicker" disable="true" layoutX="99.0" layoutY="176.0" prefWidth="200.0" />
+        <DatePicker fx:id="fechaReservaPicker" disable="true" editable="false" layoutX="99.0" layoutY="176.0" prefWidth="200.0" />
 
         <!-- Campo Fecha_Baja -->
         <Text layoutX="100.0" layoutY="227.0" text="Fecha_Baja" />
-        <DatePicker fx:id="fechaBajaPicker" disable="true" layoutX="99.0" layoutY="243.0" prefWidth="200.0" />
+        <DatePicker fx:id="fechaBajaPicker" disable="true" editable="false" layoutX="99.0" layoutY="243.0" prefWidth="200.0" />
 
         <!-- Campo Id_Cliente_Res_Act -->
-        <Text layoutX="123.0" layoutY="343.0" text="Id_Cliente_Res_Act" />
-        <TextField fx:id="txtIdClienteResAct" disable="true" layoutX="99.0" layoutY="294.0" prefWidth="200.0" />
+        <Text layoutX="100.0" layoutY="344.0" text="Id_Cliente_Res_Act" />
+        <TextField fx:id="txtIdClienteResAct" disable="true" layoutX="98.0" layoutY="363.0" prefWidth="200.0" />
 
         <!-- Campo Id_Est_Reserva_Act -->
         <Text layoutX="100.0" layoutY="290.0" text="Id_Est_Reserva_Act" />
-        <TextField fx:id="txtIdEstadoReservaAct" disable="true" layoutX="120.0" layoutY="357.0" prefWidth="200.0" />
+        <TextField fx:id="txtIdEstadoReservaAct" disable="true" layoutX="98.0" layoutY="306.0" prefWidth="200.0" />
 
         <!-- Campo Id_Actividad -->
         <Text layoutX="409.0" layoutY="95.0" text="Id_Actividad" />

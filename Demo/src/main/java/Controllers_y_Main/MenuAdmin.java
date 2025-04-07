@@ -134,7 +134,7 @@ public class MenuAdmin extends Application {
     public void ConLocalizacion(Stage stage) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Con Localizacion.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 824, 609);
+        Scene scene = new Scene(fxmlLoader.load(), 738, 542);
         stage.setTitle("Consulta de Localizacion");
         stage.setScene(scene);
         stage.show();
