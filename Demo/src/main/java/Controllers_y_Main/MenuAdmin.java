@@ -7,7 +7,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MenuAdmin extends Application {
+public class MenuAdmin extends Application
+{
     @Override
     public void start(Stage stage) throws IOException
     {

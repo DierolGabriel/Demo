@@ -2,6 +2,7 @@ package Controllers_y_Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -193,7 +194,7 @@ public class SalasController {
         try {
             idBuscado = Integer.parseInt(idSala.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID de la sala debe ser un número entero");
+            mostrarAlerta("El ID de la sala debe ser un número entero");
             return;
         }
 
@@ -249,7 +250,7 @@ public class SalasController {
 
         } catch (IOException e)
         {
-            JOptionPane.showMessageDialog(null, "Error al acceder al archivo: " + e.getMessage());
+            mostrarAlerta("Error al guardar los datos: " + e.getMessage());
         }
     }
     @FXML
@@ -275,5 +276,13 @@ public class SalasController {
         Descripcion.setDisable(true);
         Nombre.setDisable(true);
         IdLocalizacion.setDisable(true);
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }

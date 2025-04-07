@@ -2,6 +2,7 @@ package Controllers_y_Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -46,7 +47,7 @@ public class EntrenadorController {
 
         if (!validarCamposCompletos())
         {
-            JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Todos los campos deben de esta llenos");
             return;
         }
 
@@ -54,7 +55,7 @@ public class EntrenadorController {
         try {
             idEntrenador = Integer.parseInt(IDEnt.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("El id debe ser un numero entero");
             return;
         }
 
@@ -97,11 +98,12 @@ public class EntrenadorController {
                 }
             }
 
-            JOptionPane.showMessageDialog(null, "Datos guardados exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            mostrarAlerta("Datos guardados exitosamente");
+
             limpiarFormulario();
 
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Error al guardar el entrenador");
         }
     }//fin del guardar
 
@@ -137,8 +139,7 @@ public class EntrenadorController {
     {
         Stage stageActual = (Stage) IDEnt.getScene().getWindow();
         if (IDEnt.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese un ID");
-            stageActual.toFront();
+            mostrarAlerta("Ingrese el ID del entrenador");
             return;
         }
 
@@ -146,7 +147,7 @@ public class EntrenadorController {
         try {
             idBuscado = Integer.parseInt(IDEnt.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID del entrenador debe ser un número entero");
+            mostrarAlerta("El id debe ser un numero entero");
             stageActual.toFront();
             return;
         }
@@ -194,9 +195,9 @@ public class EntrenadorController {
 
             activar();
 
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al acceder al archivo: " + e.getMessage());
-            stageActual.toFront();
+        } catch (IOException e)
+        {
+            mostrarAlerta("Error al guardar los datos: " + e.getMessage());
         }
     }
 
@@ -260,6 +261,14 @@ public class EntrenadorController {
         CorreoEnt.setDisable(true);
         NombreEnt.setDisable(true);
         TelefonoEnt.setDisable(true);
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 
 }

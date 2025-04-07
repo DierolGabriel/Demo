@@ -2,6 +2,7 @@ package Controllers_y_Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
@@ -37,7 +38,7 @@ public class EstadoRController {
     {
         if (!validarCamposCompletos())
         {
-            JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Todos los campos deben estar llenos");
             return;
         }
 
@@ -45,7 +46,7 @@ public class EstadoRController {
         try {
             idLocal = Integer.parseInt(idReserva.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("El ID debe ser un entero");
             return;
         }
 
@@ -96,11 +97,11 @@ public class EstadoRController {
                 }
             }
 
-            JOptionPane.showMessageDialog(null, "Datos guardados exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            mostrarAlerta("Datos guardados exitosamente");
             limpiarCampos();
 
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Error al guardar el estado de reserva.");
         }
     }//fin del guardar
 
@@ -140,7 +141,7 @@ public class EstadoRController {
     {
         if (idReserva.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese un ID");
+            mostrarAlerta("Ingrese un ID");
             return;
         }
 
@@ -148,7 +149,7 @@ public class EstadoRController {
         try {
             idBuscado = Integer.parseInt(idReserva.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID de la localización debe ser un número entero");
+            mostrarAlerta("El ID debe ser un entero");
             return;
         }
 
@@ -198,7 +199,7 @@ public class EstadoRController {
 
         } catch (IOException e)
         {
-            JOptionPane.showMessageDialog(null, "Error al acceder al archivo: " + e.getMessage());
+            mostrarAlerta("Error al guardar los datos: " + e.getMessage());
         }
     }
 
@@ -222,6 +223,15 @@ public class EstadoRController {
     {
         Estado.setDisable(false);
     }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
 
 }
 

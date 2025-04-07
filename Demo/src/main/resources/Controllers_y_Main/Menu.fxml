@@ -1,50 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<Pane fx:id="MainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="792.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuUsuarioController">
-    <Label layoutX="381.0" layoutY="360.0" prefHeight="72.0" prefWidth="219.0" text="Bienvenido Usuario" textOverrun="CENTER_ELLIPSIS">
-        <font>
-          <Font size="24.0" />
-        </font>
-    </Label>
-    <MenuBar fx:id="Barra" layoutY="2.0" prefHeight="25.0" prefWidth="981.0">
-        <Menu fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
-         <items>
-            <MenuItem fx:id="ManEntrenador" mnemonicParsing="false" onAction="#ManEntrenador" text="Entrenador" />
-            <MenuItem fx:id="ManLocalizacion" mnemonicParsing="false" onAction="#ManLocalizacion" text="Localización" />
-            <MenuItem fx:id="ManSalas" mnemonicParsing="false" onAction="#ManSalas" text="Salas" />
-            <MenuItem fx:id="ManActividades" mnemonicParsing="false" onAction="#ManActividades" text="Actividades" />
-            <MenuItem fx:id="ManHorarios" mnemonicParsing="false" onAction="#ManHorarios" text="Horarios Actividades" />
-            <MenuItem fx:id="ManClientes" mnemonicParsing="false" onAction="#ManClientes" text="Clientes" />
-            <MenuItem fx:id="ManEstados" mnemonicParsing="false" onAction="#ManEstados" text="Estados Reservas" />
-            <MenuItem fx:id="ManReserva" mnemonicParsing="false" onAction="#ManReserva" text="Reserva" />
-            <MenuItem fx:id="ManReservaAct" mnemonicParsing="false" onAction="#ManReservaAct" text="Reserva Actividades" />
-         </items></Menu>
-        <Menu fx:id="Movimientos" mnemonicParsing="false" text="Movimientos">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Cuotas" />
-         </items>
-        </Menu>
-        <Menu fx:id="Procesos" mnemonicParsing="false" text="Procesos">
-         <MenuItem mnemonicParsing="false" text="Actualiza Cuota" />
-        </Menu>
-        <Menu fx:id="Consultas" mnemonicParsing="false" text="Consultas">
-         <items>
-               <MenuItem mnemonicParsing="false" text="Entrenador" />
-               <MenuItem mnemonicParsing="false" text="Localización" />
-               <MenuItem mnemonicParsing="false" text="Salas" />
-               <MenuItem mnemonicParsing="false" text="Actividades" />
-               <MenuItem mnemonicParsing="false" text="Horarios Actividades" />
-               <MenuItem mnemonicParsing="false" text="Cobro por rango de fecha" />
-            <MenuItem mnemonicParsing="false" text="Cobro por Cliente" />
-               <MenuItem mnemonicParsing="false" text="Cuota por fecha" />
-               <MenuItem mnemonicParsing="false" text="Cuota por Clientes" />
-            <MenuItem mnemonicParsing="false" text="Clientes" />
-            <MenuItem mnemonicParsing="false" text="Clientes con balance pendiente" />
-         </items>
-        </Menu>
-    </MenuBar>
-</Pane>
+<BorderPane prefHeight="671.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuUsuarioController">
+
+    <!-- Top panel -->
+    <top>
+        <Pane prefHeight="42.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+    </top>
+
+    <!-- Left panel -->
+    <left>
+        <VBox prefWidth="200.0" spacing="10.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+
+            <!-- Panel de perfil -->
+            <VBox alignment="TOP_CENTER" prefHeight="208.0" spacing="10.0" style="-fx-background-color: white;">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
+                    <image>
+                        <Image url="https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png" />
+                    </image>
+                </ImageView>
+                <Label text="Nombre del Usuario" />
+            </VBox>
+
+            <!-- Menú con Scroll y Accordion -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                <Accordion>
+                    <panes>
+
+                        <!-- Mantenimiento -->
+                        <TitledPane fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                                <Button fx:id="ManEntrenador" mnemonicParsing="false" onAction="#ManEntrenador" prefWidth="180" text="Entrenador" />
+                                <Button fx:id="ManLocalizacion" mnemonicParsing="false" onAction="#ManLocalizacion" prefWidth="180" text="Localización" />
+                                <Button fx:id="ManSalas" mnemonicParsing="false" onAction="#ManSalas" prefWidth="180" text="Salas" />
+                                <Button fx:id="ManActividades" mnemonicParsing="false" onAction="#ManActividades" prefWidth="180" text="Actividades" />
+                                <Button fx:id="ManHorarios" mnemonicParsing="false" onAction="#ManHorarios" prefWidth="180" text="Horarios Actividades" />
+                                <Button fx:id="ManClientes" mnemonicParsing="false" onAction="#ManClientes" prefWidth="180" text="Clientes" />
+                                <Button fx:id="ManEstados" mnemonicParsing="false" onAction="#ManEstados" prefWidth="180" text="Estados Reservas" />
+                                <Button fx:id="ManReserva" mnemonicParsing="false" onAction="#ManReserva" prefWidth="180" text="Reserva" />
+                                <Button fx:id="ManReservaAc" mnemonicParsing="false" onAction="#ManReservaAc" prefWidth="180" text="Reserva Actividades" />
+                            </VBox>
+                        </TitledPane>
+
+                        <!-- Movimientos -->
+                        <TitledPane fx:id="Movimientos" mnemonicParsing="false" text="Movimientos">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                                <Button mnemonicParsing="false" prefWidth="180" text="Cuotas" />
+                            </VBox>
+                        </TitledPane>
+
+                        <!-- Procesos -->
+                        <TitledPane fx:id="Procesos" mnemonicParsing="false" text="Procesos">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                                <Button mnemonicParsing="false" prefWidth="180" text="Actualizar Cuota" />
+                            </VBox>
+                        </TitledPane>
+
+                        <!-- Consultas -->
+                        <TitledPane fx:id="Consultas" mnemonicParsing="false" text="Consultas">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                                <Button mnemonicParsing="false" prefWidth="180" text="Entrenador" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Localización" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Salas" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Actividades" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Cobro por rango de fecha" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Cobro por Cliente" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Cuota por fecha" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Clientes" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Reserva Actividades" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Clientes con balance pendiente" />
+                            </VBox>
+                        </TitledPane>
+
+                    </panes>
+                </Accordion>
+            </ScrollPane>
+        </VBox>
+    </left>
+
+    <!-- Centro -->
+    <center>
+        <Pane prefHeight="567.0" prefWidth="602.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
+    </center>
+
+</BorderPane>

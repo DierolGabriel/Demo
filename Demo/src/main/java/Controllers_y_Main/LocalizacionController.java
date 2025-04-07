@@ -2,6 +2,7 @@ package Controllers_y_Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
@@ -35,7 +36,7 @@ public class LocalizacionController {
     @FXML
     void Guardar(ActionEvent event) {
         if (!validarCamposCompletos()) {
-            JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Todos los campos deben estar llenos");
             return;
         }
 
@@ -43,7 +44,7 @@ public class LocalizacionController {
         try {
             idLocal = Integer.parseInt(Localizacion.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("El id debe ser un numero entero");
             return;
         }
 
@@ -87,11 +88,11 @@ public class LocalizacionController {
                 }
             }
 
-            JOptionPane.showMessageDialog(null, "Datos guardados exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            mostrarAlerta("Datos guardados exitosamente");
             limpiarCampos();
 
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Error al guardar los datos: ");
         }
 
 
@@ -125,7 +126,7 @@ public class LocalizacionController {
     {
         if (Localizacion.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese un ID");
+            mostrarAlerta("Debe ingresar el la localizacion");
             return;
         }
 
@@ -133,7 +134,7 @@ public class LocalizacionController {
         try {
             idBuscado = Integer.parseInt(Localizacion.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID de la localización debe ser un número entero");
+            mostrarAlerta("El id debe ser un entero");
             return;
         }
 
@@ -183,7 +184,7 @@ public class LocalizacionController {
 
         } catch (IOException e)
         {
-            JOptionPane.showMessageDialog(null, "Error al acceder al archivo: " + e.getMessage());
+            mostrarAlerta("Error al guardar los datos: " + e.getMessage());
         }
     }// Localización
 
@@ -206,6 +207,14 @@ public class LocalizacionController {
     public void activar()
     {
         Tipo.setDisable(false);
+    }
+
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 
 }

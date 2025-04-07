@@ -2,11 +2,7 @@ package Controllers_y_Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -60,7 +56,7 @@ public class UsuarioControl {
     void Detectar(ActionEvent event) {
         if (loginField.getText().isEmpty() || passwordField.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre y contraseña");
+            mostrarAlerta("Ingrese el nombre del usuario y la contraseña");
             Stage stageActual = (Stage) User.getScene().getWindow();
             stageActual.toFront();
             return;
@@ -114,7 +110,7 @@ public class UsuarioControl {
                             }
                             if(passwordusuario != passwordField.getText() && Login.equals(loginFieldText))
                             {
-                                JOptionPane.showMessageDialog(null, "Este usuario ya existe ingrese la contraseña correcta");
+                                mostrarAlerta("Este usuario ya existe, ingrese la contraseña correcta o digite otro usuario.");
                                 return;
                             }
                         } catch (NumberFormatException e) {
@@ -134,7 +130,7 @@ public class UsuarioControl {
                 Administrador.setSelected(false);
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al acceder al archivo: " + e.getMessage());
+            mostrarAlerta("Error al crear el usuario");
         }
     }
 
@@ -143,9 +139,8 @@ public class UsuarioControl {
     {
         if (!validarCamposCompletos())
         {
-            JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Todos los campos deden estar llenos");
             Stage stageActual = (Stage) User.getScene().getWindow();
-            stageActual.toFront();
             return;
         }
 
@@ -189,12 +184,12 @@ public class UsuarioControl {
                 }
             }
 
-            JOptionPane.showMessageDialog(null, "Datos guardados exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            mostrarAlerta("Usuario guardado correctamente");
             statusLabel.setText(usuarioExiste ? "Modificado" : "Creado");
             desactivar();
         } catch (IOException e)
         {
-            JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Error al guardar " + e.getMessage());
         }
     }
 
@@ -258,4 +253,11 @@ public class UsuarioControl {
         statusLabel.setText("");
     }
 
+    private void mostrarAlerta(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }

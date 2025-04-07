@@ -2,10 +2,8 @@ package Controllers_y_Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Button;
+import javafx.scene.control.TitledPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,152 +11,82 @@ import java.io.IOException;
 public class MenuController {
 
     @FXML
-    private MenuBar Barra;
+    private Button ConActividades;
 
     @FXML
-    private Menu Consultas;
+    private Button ConClientes;
 
     @FXML
-    private Pane MainMenu;
+    private Button ConClientesPendiente;
 
     @FXML
-    private MenuItem ManActividades;
+    private Button ConCobroCliente;
 
     @FXML
-    private MenuItem ManClientes;
+    private Button ConCobroFecha;
 
     @FXML
-    private MenuItem ManEntrenador;
+    private Button ConCuotaClientes;
 
     @FXML
-    private MenuItem ManEstados;
+    private Button ConCuotaFecha;
 
     @FXML
-    private MenuItem ManHorarios;
+    private Button ConEntrenador;
 
     @FXML
-    private MenuItem ManLocalizacion;
+    private Button ConHorarios;
 
     @FXML
-    private MenuItem ManReserva;
+    private Button ConLocalización;
 
     @FXML
-    private MenuItem ManReservaAct;
+    private Button ConSalas;
 
     @FXML
-    private MenuItem ManSalas;
+    private Button ConUsuarios;
 
     @FXML
-    private MenuItem ManUsuarios;
+    private TitledPane Consultas;
 
     @FXML
-    private Menu Mantenimiento;
+    private Button ManActividades;
 
     @FXML
-    private Menu Movimientos;
+    private Button ManClientes;
 
     @FXML
-    private Menu Procesos;
+    private Button ManEntrenador;
 
     @FXML
-    private MenuItem ConActividades;
+    private Button ManEstados;
 
     @FXML
-    private MenuItem ConClientes;
+    private Button ManHorarios;
 
     @FXML
-    private MenuItem ConClientesPendiente;
+    private Button ManLocalizacion;
 
     @FXML
-    private MenuItem ConCobroCliente;
+    private Button ManReserva;
 
     @FXML
-    private MenuItem ConCobroFecha;
+    private Button ManReservaAc;
 
     @FXML
-    private MenuItem ConCuotaClientes;
+    private Button ManSalas;
 
     @FXML
-    private MenuItem ConCuotaFecha;
+    private Button ManUsuario;
 
     @FXML
-    private MenuItem ConEntrenador;
+    private TitledPane Mantenimiento;
 
     @FXML
-    private MenuItem ConHorarios;
+    private TitledPane Movimientos;
 
     @FXML
-    private MenuItem ConLocalización;
-
-    @FXML
-    private MenuItem ConSalas;
-
-    @FXML
-    private MenuItem ConUsuarios;
-
-    @FXML
-    void ManUsuarios(ActionEvent event) throws IOException
-    {
-        MenuAdmin menuAdmin= new MenuAdmin();
-        menuAdmin.Usuarios(new Stage());
-    }
-
-    @FXML
-    void ManEntrenador(ActionEvent event) throws IOException
-    {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Entrenador(new Stage());
-    }
-
-    @FXML
-    void ManActividades(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Actividades(new Stage());
-    }
-
-    @FXML
-    void ManClientes(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Clientes(new Stage());
-
-    }
-    @FXML
-    void ManEstados(ActionEvent event) throws IOException
-    {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.EstadoR(new Stage());
-    }
-
-    @FXML
-    void ManHorarios(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Horarios(new Stage());
-    }
-
-    @FXML
-    void ManLocalizacion(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Localizacion(new Stage());
-    }
-
-    @FXML
-    void ManReserva(ActionEvent event) throws IOException
-    {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Reserva(new Stage());
-    }
-
-    @FXML
-    void ManSalas(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Salas(new Stage());
-
-    }
-    @FXML
-    void ManReservaAct(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.ReservaAct(new Stage());
-    }
+    private TitledPane Procesos;
 
     @FXML
     void ConActividades(ActionEvent event) throws IOException {
@@ -167,8 +95,9 @@ public class MenuController {
     }
 
     @FXML
-    void ConClientes(ActionEvent event) {
-
+    void ConClientes(ActionEvent event)
+    {
+        MenuAdmin menuAdmin = new MenuAdmin();
     }
 
     @FXML
@@ -192,8 +121,8 @@ public class MenuController {
     }
 
     @FXML
-    void ConCuotaFecha(ActionEvent event) {
-
+    void ConCuotaFecha(ActionEvent event)
+    {
     }
 
     @FXML
@@ -225,4 +154,65 @@ public class MenuController {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.ConUsuario(new Stage());
     }
+
+    @FXML
+    void ManActividades(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Actividades(new Stage());
+    }
+
+    @FXML
+    void ManClientes(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Clientes(new Stage());
+    }
+
+    @FXML
+    void ManEntrenador(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Entrenador(new Stage());
+    }
+
+    @FXML
+    void ManEstados(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.EstadoR(new Stage());
+    }
+
+    @FXML
+    void ManHorarios(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Horarios(new Stage());
+    }
+
+    @FXML
+    void ManLocalizacion(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Localizacion(new Stage());
+    }
+
+    @FXML
+    void ManReserva(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ReservaAct(new Stage());
+    }
+
+    @FXML
+    void ManReservaAc(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Usuarios(new Stage());
+    }
+
+    @FXML
+    void ManSalas(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Salas(new Stage());
+    }
+
+    @FXML
+    void ManUsuario(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.Usuarios(new Stage());
+    }
+
 }
