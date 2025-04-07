@@ -5,11 +5,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="671.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
+<BorderPane prefHeight="815.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
 
     <!-- Top panel -->
     <top>
-        <Pane prefHeight="42.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+        <Pane prefHeight="34.0" prefWidth="870.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
     </top>
 
     <!-- Left panel -->
@@ -22,11 +22,11 @@
                     <Insets bottom="10" left="10" right="10" top="10" />
                 </padding>
                 <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
-                    <image>
-                        <Image url="https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png" />
-                    </image>
+               <image>
+                  <Image url="@../Imagenes/avatarperfil.png" />
+               </image>
                 </ImageView>
-                <Label text="Nombre del Administrador" />
+                <Label text="Administrador" />
             </VBox>
 
             <!-- Menú con Scroll y Accordion -->
@@ -105,7 +105,7 @@
 
     <!-- Centro -->
     <center>
-        <Pane prefHeight="567.0" prefWidth="602.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
+        <Pane prefHeight="721.0" prefWidth="759.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
     </center>
 
 </BorderPane>
