@@ -89,9 +89,9 @@ public class MenuUsuarioController {
     }
 
     @FXML
-    void ConClientes(ActionEvent event)
-    {
+    void ConClientes(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConClientes(new Stage());
     }
 
     @FXML
