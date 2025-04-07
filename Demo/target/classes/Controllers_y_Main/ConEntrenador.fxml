@@ -11,10 +11,10 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="TextField" layoutX="24.0" layoutY="118.0" />
+      <TextField fx:id="TextField" layoutX="24.0" layoutY="118.0" onAction="#Consultar" />
       <Button fx:id="Limpiar" layoutX="411.0" layoutY="117.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
       <Button fx:id="Consultar" layoutX="566.0" layoutY="118.0" mnemonicParsing="false" onAction="#Consultar" text="Consultar" />
-      <RadioButton fx:id="Filtro1" layoutX="192.0" layoutY="122.0" mnemonicParsing="false" text="ID" />
+      <RadioButton fx:id="Filtro1" layoutX="192.0" layoutY="122.0" mnemonicParsing="false" selected="true" text="ID" />
       <RadioButton fx:id="Filtro2" layoutX="304.0" layoutY="122.0" mnemonicParsing="false" text="Nombre" />
       <Label layoutX="178.0" layoutY="100.0" text="Filtros:" />
       <TableView fx:id="Table" layoutX="16.0" layoutY="177.0" prefHeight="437.0" prefWidth="798.0">

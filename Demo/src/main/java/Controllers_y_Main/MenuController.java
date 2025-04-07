@@ -194,14 +194,15 @@ public class MenuController {
     @FXML
     void ManReserva(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.ReservaAct(new Stage());
+        menuAdmin.Reserva(new Stage());
     }
 
     @FXML
     void ManReservaAc(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.Usuarios(new Stage());
+        menuAdmin.ReservaAct(new Stage());
     }
+
 
     @FXML
     void ManSalas(ActionEvent event) throws IOException {

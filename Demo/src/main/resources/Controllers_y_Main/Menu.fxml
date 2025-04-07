@@ -78,16 +78,17 @@
                                 <padding>
                                     <Insets bottom="10" left="10" right="10" top="10" />
                                 </padding>
-                                <Button mnemonicParsing="false" prefWidth="180" text="Entrenador" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Localización" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Salas" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Actividades" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Cobro por rango de fecha" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Cobro por Cliente" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Cuota por fecha" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Clientes" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Reserva Actividades" />
-                                <Button mnemonicParsing="false" prefWidth="180" text="Clientes con balance pendiente" />
+                                <Button fx:id="ConEntrenador" mnemonicParsing="false" onAction="#ConEntrenador" prefWidth="180" text="Entrenador" />
+                                <Button fx:id="ConLocalización" mnemonicParsing="false" onAction="#ConLocalización" prefWidth="180" text="Localización" />
+                                <Button fx:id="ConSalas" mnemonicParsing="false" onAction="#ConSalas" prefWidth="180" text="Salas" />
+                                <Button fx:id="ConActividades" mnemonicParsing="false" onAction="#ConActividades" prefWidth="180" text="Actividades" />
+                                <Button fx:id="ConHorarios" mnemonicParsing="false" onAction="#ConHorarios" prefWidth="180" text="Horarios Actividades" />
+                                <Button fx:id="ConCobroFecha" mnemonicParsing="false" onAction="#ConCobroFecha" prefWidth="180" text="Cobro por rango de fecha" />
+                                <Button fx:id="ConCobroCliente" mnemonicParsing="false" onAction="#ConCobroCliente" prefWidth="180" text="Cobro por Cliente" />
+                                <Button fx:id="ConCuotaFecha" mnemonicParsing="false" onAction="#ConCuotaFecha" prefWidth="180" text="Cuota por fecha" />
+                        <Button fx:id="ConCuotaClientes" mnemonicParsing="false" onAction="#ConCuotaClientes" prefWidth="180" text="Cuota por Clientes" />
+                                <Button fx:id="ConClientes" mnemonicParsing="false" onAction="#ConClientes" prefWidth="180" text="Clientes" />
+                                <Button fx:id="ConClientesPendiente" mnemonicParsing="false" onAction="#ConClientesPendiente" prefWidth="180" text="Clientes con balance pendiente" />
                             </VBox>
                         </TitledPane>
 

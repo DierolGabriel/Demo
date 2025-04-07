@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -188,7 +190,8 @@ public class HorariosController {
 
     @FXML
     void Salir(ActionEvent event) {
-        System.exit(0);
+        Stage stageActual = (Stage) Notificador.getScene().getWindow();
+        stageActual.close();
     }
 
     private void limpiarCampos(boolean incluirId) {
