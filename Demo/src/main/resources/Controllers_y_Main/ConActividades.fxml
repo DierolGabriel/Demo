@@ -26,8 +26,9 @@
             <TableColumn fx:id="colIdAct" prefWidth="75.0" text="ID Act" />
             <TableColumn fx:id="colNombreAct" prefWidth="150.0" text="Nombre Act" />
             <TableColumn fx:id="colDescripcionAct" prefWidth="200.0" text="Descripción" />
-            <TableColumn fx:id="colIdLocalizacionAct" prefWidth="100.0" text="ID Localización" />
-            <TableColumn fx:id="colIdEntrenadorAct" prefWidth="100.0" text="ID Entrenador" />
+            <TableColumn fx:id="colIdLocalizacionAct" prefWidth="91.20001220703125" text="ID Localización" />
+            <TableColumn fx:id="colIdEntrenadorAct" prefWidth="88.79998779296875" text="ID Entrenador" />
+            <TableColumn fx:id="colIdEntrenadorNombreAct" prefWidth="122.39996337890625" text="Nombre Entrenador" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

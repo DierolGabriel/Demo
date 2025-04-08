@@ -24,6 +24,7 @@ public class ConEntrenadorController {
     @FXML private TableColumn<Entrenador, String> colApellido;
     @FXML private TableColumn<Entrenador, String> colTelefono;
     @FXML private TableColumn<Entrenador, String> colCorreo;
+    @FXML private TableColumn<?, ?> colIdEntrenadorNombreAct;
 
     private static final String ARCHIVO_ENTRENADORES = "Entrenadores.txt";
     private ObservableList<Entrenador> listaEntrenadores = FXCollections.observableArrayList();
