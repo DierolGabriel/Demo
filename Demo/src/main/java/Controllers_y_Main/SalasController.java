@@ -40,6 +40,8 @@ public class SalasController {
     @FXML
     private TextField idSala;
 
+
+    //TODO COMBO BOX EN ID
     @FXML
     void Guardar(ActionEvent event)
     {
@@ -186,7 +188,7 @@ public class SalasController {
     {
         if (idSala.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese un ID");
+            mostrarAlerta("Ingrese el ID del sala");
             return;
         }
 

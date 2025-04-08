@@ -22,6 +22,6 @@
       <Button fx:id="Guardar" layoutX="268.0" layoutY="308.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
       <Button fx:id="Salir" layoutX="384.0" layoutY="308.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
       <Button fx:id="Limpiar" layoutX="152.0" layoutY="308.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
-      <TextArea fx:id="Descripcion" layoutX="235.0" layoutY="140.0" prefHeight="108.0" prefWidth="200.0" />
+      <TextArea fx:id="Descripcion" disable="true" layoutX="235.0" layoutY="140.0" prefHeight="108.0" prefWidth="200.0" />
     </children>
 </Pane>

@@ -88,7 +88,6 @@
                                 <Button fx:id="ConCuotaFecha" mnemonicParsing="false" onAction="#ConCuotaFecha" prefWidth="180" text="Cuota por fecha" />
                         <Button fx:id="ConCuotaClientes" mnemonicParsing="false" onAction="#ConCuotaClientes" prefWidth="180" text="Cuota por Clientes" />
                                 <Button fx:id="ConClientes" mnemonicParsing="false" onAction="#ConClientes" prefWidth="180" text="Clientes" />
-                                <Button fx:id="ConClientesPendiente" mnemonicParsing="false" onAction="#ConClientesPendiente" prefWidth="180" text="Clientes con balance pendiente" />
                             </VBox>
                         </TitledPane>
 

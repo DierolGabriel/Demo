@@ -3,19 +3,22 @@ package Controllers_y_Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.time.chrono.Chronology;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HorariosController {
 
     @FXML
-    private TextField DiaAct;
+    private DatePicker DiaAct;
+
 
     @FXML
     private Button Guardar;
@@ -44,13 +47,15 @@ public class HorariosController {
 
     @FXML
     public void initialize() {
-        // Configurar el evento para validar ID de horario al escribir
         IdHorarioActividad.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 validarIdHorario(newValue);
             }
         });
     }
+
+    //TODO:SI STATUS FALSO =MODIFIVACAR TRUE=NO MODIFICAR
+//TRUE MENSAJE QUE EL CLIENTE NO TIENE VALANCE PENDIENTE
 
     private void validarIdHorario(String idHorario) {
         File archivo = new File(ARCHIVO_HORARIOS);
@@ -115,7 +120,7 @@ public class HorariosController {
 
     private void cargarDatosHorario(String[] datos) {
         if (datos.length >= 4) {
-            DiaAct.setText(datos[1]);
+            DiaAct.setChronology(Chronology.of(datos[1]));
             HoraAct.setText(datos[2]);
             IdActividad.setText(datos[3]);
         }
@@ -134,11 +139,11 @@ public class HorariosController {
         }
 
         String idHorario = IdHorarioActividad.getText().trim();
-        String dia = DiaAct.getText().trim();
+        Chronology dia = DiaAct.getChronology();
         String hora = HoraAct.getText().trim();
         String idActividad = IdActividad.getText().trim();
 
-        String linea = String.join(":", idHorario, dia, hora, idActividad);
+        String linea = String.join(":", idHorario, dia.getCalendarType(), hora, idActividad);
 
         File archivo = new File(ARCHIVO_HORARIOS);
         List<String> lineas = new ArrayList<>();
@@ -198,7 +203,7 @@ public class HorariosController {
         if (incluirId) {
             IdHorarioActividad.clear();
         }
-        DiaAct.clear();
+        DiaAct.setValue(null);
         HoraAct.clear();
         IdActividad.clear();
         desactivarCampos();
@@ -206,7 +211,7 @@ public class HorariosController {
 
     private boolean validarCampos() {
         if (IdHorarioActividad.getText().trim().isEmpty() ||
-                DiaAct.getText().trim().isEmpty() ||
+                DiaAct.getChronology() == null ||
                 HoraAct.getText().trim().isEmpty() ||
                 IdActividad.getText().trim().isEmpty()) {
 
