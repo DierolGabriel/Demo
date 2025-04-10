@@ -1,2 +1,4 @@
-001:001:Sala nueva:Sala numero 1
+25:1:Sala de Zumba:Sala numero 1
 025:002:Salon:Sala Grande
+1:001:Sala de Zumba:Sala numero 1
+1234:003:Sala prueba 3:Una sala de prueba

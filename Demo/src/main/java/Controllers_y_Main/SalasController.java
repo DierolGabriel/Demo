@@ -2,127 +2,88 @@ package Controllers_y_Main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SalasController {
 
-    @FXML
-    private Button Limpiar;
+    @FXML private Button Limpiar;
+    @FXML private Button Salir;
+    @FXML private TextArea Descripcion;
+    @FXML private Button Guardar;
+    @FXML private ComboBox<String> IdLocalizacion;
+    @FXML private TextField Nombre;
+    @FXML private TextField Notificador;
+    @FXML private TextField idSala;
 
     @FXML
-    private Button Salir;
+    public void initialize() {
+        cargarLocalizaciones();
+    }
+
+    private void cargarLocalizaciones() {
+        File archivo = new File("Localización.txt");
+        if (!archivo.exists()) return;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            IdLocalizacion.getItems().clear();
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length >= 1) {
+                        IdLocalizacion.getItems().add(partes[0].trim());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al cargar localizaciones: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
 
     @FXML
-    private TextArea Descripcion;
-
-    @FXML
-    private Button Guardar;
-
-    @FXML
-    private TextField IdLocalizacion;
-
-
-    @FXML
-    private TextField Nombre;
-
-    @FXML
-    private TextField Notificador;
-
-    @FXML
-    private TextField idSala;
-
-
-    //TODO COMBO BOX EN ID
-    @FXML
-    void Guardar(ActionEvent event)
-    {
-        if (!validarCamposCompletos())
-        {
-            JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos", "Error", JOptionPane.ERROR_MESSAGE);
+    void Guardar(ActionEvent event) {
+        if (!validarCamposCompletos()) {
+            mostrarAlerta("Todos los campos deben estar llenos", Alert.AlertType.ERROR);
             return;
         }
 
-        int idLocal;
+        if (!existeLocalizacion(IdLocalizacion.getValue())) {
+            mostrarAlerta("Selecione una id de Localización", Alert.AlertType.ERROR);
+            return;
+        }
+
+        int idSalaNum;
         try {
-            idLocal = Integer.parseInt(idSala.getText().trim());
+            idSalaNum = Integer.parseInt(idSala.getText().trim());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El ID debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("El ID de sala debe ser un número entero", Alert.AlertType.ERROR);
             return;
         }
-
-        int idLocalizacion;
-        File archivoLocal = new File("Localización.txt");
-        List<String> lineasL = new ArrayList<>();
-        boolean existeLocalizacion = false;
-
-        try {
-            idLocalizacion = Integer.parseInt(IdLocalizacion.getText().trim());
-                try (BufferedReader br = new BufferedReader(new FileReader(archivoLocal)))
-                {
-                    String linea;
-                    while ((linea = br.readLine()) != null)
-                    {
-                        if (!linea.trim().isEmpty()) {
-                            String[] partes = linea.split(":");
-                            if (partes.length >= 1)
-                            {
-                                try {
-                                    int idActual = Integer.parseInt(partes[0].trim());
-                                    if (idActual == idLocalizacion)
-                                    {
-                                        existeLocalizacion = true;
-                                    }
-                                }catch (NumberFormatException ignored)
-                                {
-                                }
-                            }
-                        }
-                    }
-                    if (!existeLocalizacion)
-                    {
-                    JOptionPane.showMessageDialog(null, "La id de la localización no existe", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                    }
-                } catch (FileNotFoundException e)
-                {throw new RuntimeException(e);
-                }catch (IOException e)
-                {throw new RuntimeException(e);}
-        }catch (NumberFormatException e)
-        {throw new RuntimeException(e);}
 
         File archivo = new File("Salas.txt");
         List<String> lineas = new ArrayList<>();
-        boolean existeLocal = false;
+        boolean existeRegistro = false;
 
         try {
             if (archivo.exists()) {
-                try (BufferedReader br = new BufferedReader(new FileReader(archivo)))
-                {
+                try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
                     String linea;
                     while ((linea = br.readLine()) != null) {
                         if (!linea.trim().isEmpty()) {
                             String[] partes = linea.split(":");
                             if (partes.length >= 2) {
                                 try {
-                                    int idActual = Integer.parseInt(partes[0].trim());
-
-                                    if (idActual == idLocal)
-                                    {
-                                        lineas.add(crearLineaEntrenador());
-                                        existeLocal = true;
+                                    int idActual = Integer.parseInt(partes[1].trim());
+                                    if (idActual == idSalaNum) {
+                                        lineas.add(crearLineaSala());
+                                        existeRegistro = true;
                                         continue;
                                     }
-                                } catch (NumberFormatException ignored) {
-                                }
+                                } catch (NumberFormatException ignored) {}
                             }
                             lineas.add(linea);
                         }
@@ -130,9 +91,8 @@ public class SalasController {
                 }
             }
 
-            if (!existeLocal)
-            {
-                lineas.add(crearLineaEntrenador());
+            if (!existeRegistro) {
+                lineas.add(crearLineaSala());
             }
 
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
@@ -142,27 +102,110 @@ public class SalasController {
                 }
             }
 
-            JOptionPane.showMessageDialog(null, "Datos guardados exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            mostrarAlerta("Datos guardados exitosamente", Alert.AlertType.INFORMATION);
             limpiarCampos();
 
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            mostrarAlerta("Error al guardar: " + e.getMessage(), Alert.AlertType.ERROR);
         }
-
-
     }
-    private boolean validarCamposCompletos()
-    {
-        return !IdLocalizacion.getText().trim().isEmpty() &&
+
+    private boolean existeLocalizacion(String id) {
+        File archivo = new File("Localización.txt");
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.startsWith(id + ":")) return true;
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error validando localización", Alert.AlertType.ERROR);
+        }
+        return false;
+    }
+
+    private boolean validarCamposCompletos() {
+        return IdLocalizacion.getValue() != null &&
                 !idSala.getText().trim().isEmpty() &&
                 !Nombre.getText().trim().isEmpty() &&
                 !Descripcion.getText().trim().isEmpty();
     }
 
+    private String crearLineaSala() {
+        return String.join(":",
+                IdLocalizacion.getValue(),
+                idSala.getText().trim(),
+                Nombre.getText().trim(),
+                Descripcion.getText().trim()
+        );
+    }
+
+    @FXML
+    void Sala(ActionEvent event) {
+        if (idSala.getText().isEmpty()) {
+            mostrarAlerta("Ingrese el ID de la sala", Alert.AlertType.ERROR);
+            return;
+        }
+
+        try {
+            int idBuscado = Integer.parseInt(idSala.getText().trim());
+            buscarSala(idBuscado);
+        } catch (NumberFormatException e) {
+            mostrarAlerta("ID debe ser numérico", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void buscarSala(int idBuscado) {
+        File arq = new File("Salas.txt");
+        boolean encontrado = false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(arq))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split(":");
+                if (partes.length >= 4) {
+                    try {
+                        int idActual = Integer.parseInt(partes[1].trim());
+                        if (idActual == idBuscado) {
+                            cargarDatosSala(partes);
+                            encontrado = true;
+                            break;
+                        }
+                    } catch (NumberFormatException ignored) {}
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error buscando sala", Alert.AlertType.ERROR);
+        }
+
+        if (!encontrado)
+        {
+            Notificador.setText("Creando");
+            Descripcion.setText("");
+            IdLocalizacion.setValue("");
+            Nombre.setText("");
+        }
+        activar();
+    }
+
+    private void cargarDatosSala(String[] partes) {
+        Nombre.setText(partes[2]);
+        Descripcion.setText(partes[3]);
+        IdLocalizacion.setValue(partes[0]);
+        Notificador.setText("Modificando");
+    }
+
+    private void mostrarAlerta(String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(tipo == Alert.AlertType.ERROR ? "Error" : "Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
     private String crearLineaEntrenador()
     {
         return String.join(":",
-                IdLocalizacion.getText().trim(),
+                IdLocalizacion.getValue().trim(),
                 idSala.getText().trim(),
                 Nombre.getText().trim(),
                 Descripcion.getText().trim()
@@ -173,7 +216,7 @@ public class SalasController {
     void Limpiar(ActionEvent event)
     {
         Descripcion.setText("");
-        IdLocalizacion.setText("");
+        IdLocalizacion.setValue("");
         Nombre.setText("");
         Notificador.setText("");
         idSala.setText("");
@@ -183,78 +226,6 @@ public class SalasController {
         IdLocalizacion.setDisable(true);
     }
 
-    @FXML
-    void Sala(ActionEvent event)
-    {
-        if (idSala.getText().isEmpty())
-        {
-            mostrarAlerta("Ingrese el ID del sala");
-            return;
-        }
-
-        int idBuscado;
-        try {
-            idBuscado = Integer.parseInt(idSala.getText().trim());
-        } catch (NumberFormatException e) {
-            mostrarAlerta("El ID de la sala debe ser un número entero");
-            return;
-        }
-
-        File arq = new File("Salas.txt");
-        boolean encontrado = false;
-
-        try {
-            if (!arq.exists())
-            {
-                arq.createNewFile();
-                return;
-            }
-
-            try (BufferedReader br = new BufferedReader(new FileReader(arq)))
-            {
-                String linea;
-                while ((linea = br.readLine()) != null && !linea.isEmpty()) {
-                    String[] partes = linea.split(":");
-
-                    if (partes.length >= 4)
-                    {
-                        try {
-                            int idSalaActual = Integer.parseInt(partes[1]);
-                            String nombreActual = partes[2];
-                            String descripcion = partes[3];
-                            String idlocalizacionActual = partes[0];
-
-                            if (idSalaActual == idBuscado)
-                            {
-                                Nombre.setText(nombreActual);
-                                Descripcion.setText(descripcion);
-                                IdLocalizacion.setText(idlocalizacionActual);
-                                Notificador.setText("Modificando");
-                                encontrado = true;
-                                break;
-                            }
-                        } catch (NumberFormatException e)
-                        {
-                            continue;
-                        }
-                    }
-                }
-            }
-            if (!encontrado )
-            {
-                Descripcion.setText("");
-                IdLocalizacion.setText("");
-                Nombre.setText("");
-                Notificador.setText("Creando");
-            }
-
-            activar();
-
-        } catch (IOException e)
-        {
-            mostrarAlerta("Error al guardar los datos: " + e.getMessage());
-        }
-    }
     @FXML
     void Salir(ActionEvent event)
     {
@@ -273,7 +244,7 @@ public class SalasController {
         idSala.setText("");
         Notificador.setText("");
         Descripcion.setText("");
-        IdLocalizacion.setText("");
+        IdLocalizacion.setValue(null);
         Nombre.setText("");
         Descripcion.setDisable(true);
         Nombre.setDisable(true);
